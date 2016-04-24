@@ -30,7 +30,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/envoll', envoll);
+app.use('/enroll', enroll);
 app.use('/management', management);
 app.use('/sign_up',sign_up);
 app.use('/users', users);

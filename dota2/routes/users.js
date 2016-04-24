@@ -23,11 +23,11 @@ router.get('/code/:mobile',function (req, res, next) {
     mobile:mobile,
     content:config.sms_template.replace("变量",code)
   }}, function (e, r, body) {
-    console.log(r);
+    cache.set("123","123",1000 * 60);
     if(!e && r.statusCode == 200){
       s.code = body.split('<code>')[1].split("</code>")[0];
       if(s.code == '2'){
-        global.cache.set(mobile,code,1000 * 60 * 5);
+        //cache.set(mobile,code,1000 * 60 * 5);
         res.send(r.statusCode);
       } 
       else res.send(body); }

@@ -1,8 +1,18 @@
 //首页
 $(function(){
+	//发送验证码
 	$("#sendVerificationCode").click(function(){
 		var num = $("#phoneNum").val();
 		$.get("/users/code/"+num)
+	});
+	//提交注册表
+	$("#register").click(function(){
+		var num = $("#phoneNum").val();
+		var code = $("#code").val();
+		var password = $("#password").val();
+		$.post("/register",{phone:num,code:code,password:password},function(data){
+
+		})
 	});
 	//$.get("http://localhost:3000/signState",function(data){
 	//	console.log(data);
@@ -119,7 +129,7 @@ $(function(){
 		$('.f_sportMenu').hide();
 		$('.re_fPageBg').hide();
 	});
-})
+});
 
 
 

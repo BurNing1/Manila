@@ -8,5 +8,18 @@ $(function(){
         window.location.reload();
       }
     })
+  });
+  $("#imageForm").submit(function(){
+    console.log($(this));
+    var files = $(this);
+    $.ajax({
+      data:{file:files},
+      url: '/management/file',
+      type: 'post',
+      async: false,
+      success: function (data) {
+        console.log(data);
+      }
+    });
   })
 });

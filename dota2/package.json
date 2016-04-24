@@ -17,12 +17,14 @@
     "serve-favicon": "~2.3.0",
     "node-cache":"~3.2.1",
     "request":"~2.72.0",
-    "orm":"~2.1.29"
+    "orm":"~2.1.29",
+    "uuid":"~2.0.2",
+    "fs":"~0.0.2"
   },
   "config": {
     "sms_account":"cf_tommy23",
     "sms_password":"6a7f8341e82894a6d9e75a2b594539ff",
     "sms_url":"http://106.ihuyi.cn/webservice/sms.php?method=Submit",
-    "sms_template":"您的验证码是：【变量】。请不要把验证码泄露给其他人。如非本人操作，可不用理会！"
+    "sms_template":"123您的验证码是：【变量】。请不要把验证码泄露给其他人。如非本人操作，可不用理会！"
   }
 }

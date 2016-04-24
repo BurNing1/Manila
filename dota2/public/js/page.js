@@ -1,5 +1,36 @@
 //首页
 $(function(){
+	$.get('/management/signState',function(data){
+		var progress = $("#progress");
+		switch (data){
+			case "null":
+				progress.css("width","0");
+				break;
+			case "signStart":
+				progress.css("width","25%");
+				break;
+			case "signStop":
+				progress.css("width","50%");
+				break;
+			case "competeStart":
+				progress.css("width","75%");
+				break;
+			case "competeStop":
+				progress.css("width","100%");
+				break;
+			case "signReset":
+				progress.css("width","0");
+				break;
+		}
+	});
+	$.get('/getSession',function(data){
+		for(var i in data) {
+			if (data[i].id == document.cookie) {
+				$("#logoutState").css("display","none");
+				$("#loginState").css("display","block").children("a:eq(0)").text(data[i].mobile);
+			}
+		}
+	});
 	var testForm = {
 		phone:false,
 		pass:false,
@@ -29,11 +60,15 @@ $(function(){
 				break;
 			case "OK":
 				$.post("/register",{phone:num,code:code,password:password},function(data){
-
+					if(data == 200){
+						alert("注册成功");
+						window.location.reload();
+					}else{
+						alert("验证码错误");
+					}
 				});
 				break;
 		}
-
 	});
 	//验证手机号
 	$("#phoneNum").on("input",function(){
@@ -50,8 +85,8 @@ $(function(){
 
 	//验证密码
 	$("#password").on("input",function(){
-		console.log(testForm);
 		var num = $(this).val();
+		var numCheck = $("#REpassword").val();
 		var reg = /^[0-9A-Za-z]{6,12}$/;
 		if(reg.test(num)){
 			$("#passCheck").css("display","none");
@@ -59,6 +94,13 @@ $(function(){
 		}else{
 			$("#passCheck").css("display","block");
 			testForm.pass = false;
+		}
+		if(num == numCheck){
+			$("#RECheck").css("display","none");
+			testForm.passCheck = true;
+		}else{
+			$("#RECheck").css("display","block");
+			testForm.passCheck = false;
 		}
 	});
 	//验证重复
@@ -73,7 +115,29 @@ $(function(){
 			testForm.passCheck = false;
 		}
 	});
-
+	//登录
+	$("#login").click(function(){
+		var phone = $("#logPhone").val();
+		var pwd = $("#logPwd").val();
+		$.get('/getSession',function(data) {
+			for(var i in data){
+				if(data[i].mobile == phone && data[i].pwd == pwd){
+					delCookie();
+					var hours = 1;
+					var exp = new Date();
+					exp.setTime(exp.getTime() + hours*60*60*1000);
+					document.cookie =data[i].id+";expires=" + exp.toGMTString();
+					window.location.reload();
+				}
+			}
+		})
+	});
+	$("#logout").click(function(){
+		if(confirm("确认注销?")){
+			delCookie();
+			window.location.reload();
+		}
+	});
 	//$.get("http://localhost:3000/signState",function(data){
 	//	console.log(data);
 	//});
@@ -99,7 +163,6 @@ $(function(){
 	$('.login').click(function(){
 		$('.re_fPageBg').show();
 		$('.f_login').show();
-
 	});
 	
 	$('.my').click(function(){
@@ -168,20 +231,18 @@ $(function(){
 	$("#postTeamMessage").click(function(){
 		$.ajax({
 			data:{
-				match_id:1,
-				uid: 1,
-				fullname:1,
-				id_name:1,
-				phone:1,
-				wechat:1,
-				qq:1
+				match_id:726,
+				battle_name:$("#teamName").val(),
+				battle_id:$("#personID").val(),
+				mobile:$("#phoneNum").val(),
+				wechat:$("#wechart").val(),
+				qq:$("#qq").val()
 			},
-			url: 'http://localhost:3000/sign_up',
+			url: '/enroll',
 			type: 'post',
 			dataType: 'json',
 			async: false,
 			success: function (data) {
-				console.log(data);
 			}
 		});
 	})
@@ -215,8 +276,12 @@ $(function(){
 	});
 });
 
-
-
+function delCookie(){
+	var del = new Date();
+	del.setTime(del.getTime() - 1);
+	var Co = document.cookie;
+	document.cookie =Co+";expires=" + del.toGMTString();
+}
 
 
 

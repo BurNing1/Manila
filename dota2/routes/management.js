@@ -9,20 +9,27 @@ var url = "http://test.dianjingquan.cn:8080/v1/file/upload";
 router.get('/', function(req, res, next) {
   res.render('management');
 });
-router.get('/file', function(req, res, next) {
-  var url = 'http://10.10.50.23:8080/v1/file/upload';
-  var filename = path.resolve(__dirname, 'cn.png');
-  var formData = {
-    // Pass data via Streams
-    file: fs.createReadStream(filename)
-  };
-  request.post({url:url, formData: formData}, function optionalCallback(err, httpResponse, body) {
-    if (err) {
-      return console.error('upload failed:', err);
+router.post('/signState',function(req,res){
+  var state = req.body.state;
+  req.models.match.find({ id: 1 }, function (err, match) {
+    if(err){
+      console.log(err);
+    }else{
+      match[0].status = state;
+      match[0].save(function(err){
+        if(err){
+          console.log(err);
+          res.json(400);
+        }else{
+          res.json(200);
+        }
+      })
     }
-    console.log('Upload successful!  Server responded with:', body);
-    res.render('body');
+  })
+});
+router.get('/signState',function(req,res){
+  req.models.match.find({id:1},function(err,result){
+    res.json(result[0].status);
   });
-  console.log(filename);
 });
 module.exports = router;

@@ -14,18 +14,18 @@ html
       ul
         li
           .txt
-            input(type='text', placeholder='手机号码')
+            input#logPhone(type='text', placeholder='手机号码')
           p.err
             i
             span 错误的手机号码
         li
           .txt
-            input(type='text', placeholder='6~12位的数字或字母组成的登录密码')
+            input#logPwd(type='text', placeholder='6~12位的数字或字母组成的登录密码')
           p.err
             i
             span 错误的手机号码
         li
-          a.btn(href='#') 登录
+          a.btn#login(href='#') 登录
       .more.cf
         p.l
           | 忘记密码？
@@ -129,9 +129,12 @@ html
     .re_lyTopMenu
       .re_topMenu
         h2.logo 电竞圈赛事系统
-      p.link
+      p.link#logoutState
         a.my(href='#') 注　册
         a.login(href='#') 登　录
+      p.link#loginState(style="display:none")
+        a
+        a.logout#logout 登出
         //
           <a href="#" class="my">我的赛事</a>
           <a href="#" class="exit">退出登录</a>
@@ -162,35 +165,35 @@ html
               // <em>（已关闭）</em>
             .show
               ul
-                li.now
+                li#state0
                   | 12月16日
                   br
                   br
                   |                             创建比赛
                   br
-                  i.t1
-                li.now
+                  i
+                li#state1
                   | 12月16日
                   br
                   br
                   |                             报名开始
                   br
                   i.t1
-                li
+                li#state2
                   | 12月16日
                   br
                   br
                   |                             报名截止
                   br
                   i
-                li
+                li#state3
                   | 12月16日
                   br
                   br
                   |                             比赛开始
                   br
                   i
-                li
+                li#state4
                   | 12月16日
                   br
                   br
@@ -198,7 +201,7 @@ html
                   br
                   i
               p.line
-                span(style='width:25%')
+                span#progress(style='width:25%')
           // 进度结束
           // 数据开始
           .dataBox

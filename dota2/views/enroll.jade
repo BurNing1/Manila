@@ -172,7 +172,7 @@ html
           ul
             li
               label 战队名称
-              input.txt(type='text', placeholder='战队名称')
+              input.txt#teamName(type='text', placeholder='战队名称')
               em.pass
           .t
             h3 报名信息
@@ -181,17 +181,17 @@ html
           ul
             li
               label 联系人战网ID
-              input.txt(type='text')
+              input.txt#personID(type='text')
             li
               label 手机号
-              input.txt(type='text')
+              input.txt#phoneNum(type='text')
               // <em class="err"></em>
             li
               label QQ
-              input.txt(type='text')
+              input.txt#qq(type='text')
             li
               label 微信
-              input.txt(type='text')
+              input.txt#wechart(type='text')
           .btn
             a#postTeamMessage.team 确认并提交战队报名信息
     .re_footer

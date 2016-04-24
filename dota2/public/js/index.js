@@ -2,12 +2,25 @@
  * Created by huangchaohui on 16/4/23.
  */
 $(function(){
-  $("#stateStart").click(function(){
-    $.post("/signState",{state:"start"},function(data){
-      if(data == 200){
-        window.location.reload();
-      }
-    })
+  $(".state").click(function(){
+    switch ($(this).data("state")){
+      case "stateStart":
+        postState("signStart");
+        break;
+      case "stateStop":
+        postState("signStop");
+        break;
+      case "competeStart":
+        postState("competeStart");
+        break;
+      case "competeStop":
+        postState("competeStop");
+        break;
+      case "stateReset":
+        postState("signReset");
+        break;
+    }
+
   });
   $("#imageForm").submit(function(){
     console.log($(this));
@@ -23,3 +36,10 @@ $(function(){
     });
   })
 });
+function postState(type){
+  $.post("/management/signState",{state:type},function(data){
+    if(data == 200){
+      window.location.reload();
+    }
+  })
+}

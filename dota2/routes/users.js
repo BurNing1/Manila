@@ -23,7 +23,7 @@ router.get('/code/:mobile',function (req, res, next) {
     mobile:mobile,
     content:config.sms_template.replace("变量",code)
   }}, function (e, r, body) {
-    cache.set("123","123",1000 * 60);
+    cache.set("18817511308","123",1000 * 60);
     if(!e && r.statusCode == 200){
       s.code = body.split('<code>')[1].split("</code>")[0];
       if(s.code == '2'){

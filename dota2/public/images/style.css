@@ -46,6 +46,7 @@ a:hover{text-decoration:none;}
 .re_lyTopMenu .link a{ display:inline-block; width:84px; padding-left:24px; margin:0 5px; text-align:center; height:42px; font-size:12px; line-height:42px; color:#fff;}
 .re_lyTopMenu .link a.app{ background:url(re_top.png) 0 0;}
 .re_lyTopMenu .link a.login{ background:url(re_top.png) 0 -104px;}
+.re_lyTopMenu .link a.logout{margin-left: 10px;color: dodgerblue;cursor: pointer; padding: 0; width: 30px; height: 20px; line-height: 20px; clear: both;}
 .re_lyTopMenu .link a.my{ background:url(re_top.png) 0 -52px;}
 .re_lyTopMenu .link a.exit{ width:auto; padding:0;}
 

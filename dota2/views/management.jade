@@ -8,9 +8,11 @@ block content
         .col-lg-12.col-box
           span 报名状态
           span#signState.label.label-default 未开始
-          button.btn.btn-sm.btn-warning.pull-right#stateReset 重置报名
-          button.btn.btn-sm.btn-danger.pull-right#stateStop 截止报名
-          button.btn.btn-sm.btn-success.pull-right#stateStart 开始报名
+          button.btn.btn-sm.btn-warning.pull-right.state(data-state="stateReset") 重置报名
+          button.btn.btn-sm.btn-danger.pull-right.state(data-state="competeStop") 结束比赛
+          button.btn.btn-sm.btn-primary.pull-right.state(data-state="competeStart") 开始比赛
+          button.btn.btn-sm.btn-danger.pull-right.state(data-state="stateStop") 截止报名
+          button.btn.btn-sm.btn-success.pull-right.state(data-state="stateStart") 开始报名
         .col-lg-12.col-box
           span 上传图片
           form(action = 'http://test.dianjingquan.cn:8080/v1/file/upload' enctype='multipart/form-data')

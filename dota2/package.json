@@ -1,8 +1,8 @@
 {
   "name": "dota2",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
-  "author":"burning,tommy",
+  "author":"huangchaohui,tommy",
   "license": "MIT 2.0",
   "scripts": {
     "start": "node ./bin/www"
@@ -27,6 +27,6 @@
     "sms_password":"6a7f8341e82894a6d9e75a2b594539ff",
     "sms_url":"http://106.ihuyi.cn/webservice/sms.php?method=Submit",
     "sms_template":"123您的验证码是：【变量】。请不要把验证码泄露给其他人。如非本人操作，可不用理会！",
-    "mysql_address":"mysql://root:wjs007008@localhost/m_manila"
+    "mysql_address":"mysql://root:@localhost/m_manila"
   }
 }

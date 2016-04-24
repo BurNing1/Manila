@@ -29,7 +29,35 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(orm.express(config.mysql_address, {
+  define: function (db, models, next) {
+    models.enroll = db.define("enroll", {
+      id : { type: 'serial', key: true },
+      uid:  { type: 'number', required: true },
+      battle_name:  String,
+      steam_id:  String,
+      mobile:  String,
+      qq:  String,
+      wechat:  String,
+      enable:  Boolean,
+      add_time: Date
+    });
+    models.userMessage = db.define("user",{
+      id : { type: 'serial', key: true },
+      mobile:  String,
+      pwd: String,
+      enabled:  Boolean
+    });
+    models.match = db.define("match",{
+      id : { type: 'serial', key: true },
+      status:  String,
+      vs_url: String,
+      vs_id:  String,
+      name:  String
+    });
+    next();
+  }
+}));
 app.use('/', routes);
 app.use('/enroll', enroll);
 app.use('/management', management);
@@ -66,9 +94,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-//orm.connect(config.mysql_address, function (err, db) {
-//  if(!err) console.log(db);
-//  global.db = db;
-//});
 
 module.exports = app;

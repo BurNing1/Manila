@@ -4,11 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var cache = require( "node-cache" );
 
 global.config = require('./package.json').config;
+global.cache = new cache();
 
 var routes = require('./routes/index');
-var envoll = require('./routes/envoll');
+var enroll = require('./routes/enroll');
 var management = require('./routes/management');
 var sign_up = require('./routes/sign_up');
 var users = require('./routes/users');

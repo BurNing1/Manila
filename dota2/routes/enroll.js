@@ -1,9 +1,9 @@
 /**
- * Created by huangchaohui on 16/4/24.
+ * Created by tommy on 2016/4/24.
  */
 var express = require('express');
 var router = express.Router();
 router.get('/', function(req, res, next) {
-  res.render('envoll');
+    res.render('enroll');
 });
 module.exports = router;

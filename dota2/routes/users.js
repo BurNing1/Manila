@@ -26,7 +26,10 @@ router.get('/code/:mobile',function (req, res, next) {
     console.log(r);
     if(!e && r.statusCode == 200){
       s.code = body.split('<code>')[1].split("</code>")[0];
-      if(s.code == '2') res.send(r.statusCode);
+      if(s.code == '2'){
+        global.cache.set(mobile,code,1000 * 60 * 5);
+        res.send(r.statusCode);
+      } 
       else res.send(body); }
     else { res.send(e); }
   });

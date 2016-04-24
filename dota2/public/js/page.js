@@ -5,21 +5,37 @@ $(function(){
 		switch (data){
 			case "null":
 				progress.css("width","0");
+				$("li[id*='s1']").addClass("now");
+				$("#signBool .t1").css("display","block");
 				break;
 			case "signStart":
 				progress.css("width","25%");
+				$("li[id*='s2']").addClass("now");
+				$("i[id*='i1']").addClass("t1");
+				$("#signBool .t4").css("display","block");
 				break;
 			case "signStop":
 				progress.css("width","50%");
+				$("li[id*='s3']").addClass("now");
+				$("i[id*='i2']").addClass("t1");
+				$("#signBool .t1").css("display","block");
 				break;
 			case "competeStart":
 				progress.css("width","75%");
+				$("li[id*='s4']").addClass("now");
+				$("i[id*='i3']").addClass("t1");
+				$("#signBool .t1").css("display","block");
 				break;
 			case "competeStop":
 				progress.css("width","100%");
+				$("li[id*='s5']").addClass("now");
+				$("i[id*='i4']").addClass("t1");
+				$("#signBool .t1").css("display","block");
 				break;
 			case "signReset":
 				progress.css("width","0");
+				$("li[id*='s1']").addClass("now");
+				$("#signBool .t1").css("display","block");
 				break;
 		}
 	});
@@ -39,6 +55,8 @@ $(function(){
 	};
 	//发送验证码
 	$("#sendVerificationCode").click(function(){
+		$(this).css("display","none");
+		$("#showTime").css("display","inline-block");
 		var num = $("#phoneNum").val();
 		$.get("/users/code/"+num)
 	});
@@ -69,6 +87,9 @@ $(function(){
 				});
 				break;
 		}
+	});
+	$("#signBool>.t4").click(function(){
+		window.location.href="/enroll"
 	});
 	//验证手机号
 	$("#phoneNum").on("input",function(){
@@ -163,6 +184,7 @@ $(function(){
 	$('.login').click(function(){
 		$('.re_fPageBg').show();
 		$('.f_login').show();
+		initialization();
 	});
 	
 	$('.my').click(function(){
@@ -194,6 +216,8 @@ $(function(){
 		$(".formInput").val("");
 		$(".err").css("display","none");
 		$("#agree").prop("checked",false);
+		$("#sendVerificationCode").css("display","inline-block");
+		$("#showTime").css("display","none");
 		testForm = {
 			phone:false,
 			pass:false,

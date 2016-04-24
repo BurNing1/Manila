@@ -15,13 +15,11 @@ block content
           button.btn.btn-sm.btn-success.pull-right.state(data-state="stateStart") 开始报名
         .col-lg-12.col-box
           span 上传图片
-          form(action = 'http://test.dianjingquan.cn:8080/v1/file/upload' enctype='multipart/form-data')
-            input(type='file')
-            input(type='submit' value='上传')
+          button.btn.btn-sm.btn-primary.pull-right 上传
         .col-lg-12.col-box
           span 赛事报名名单审核
         .col-lg-12.col-table-box
-          table.table.table-hover
+          table.table.table-hover#teamTable.teamTable
             thead
               tr
                 th(width="20%") 战队名称

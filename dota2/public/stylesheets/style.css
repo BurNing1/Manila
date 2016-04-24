@@ -26,3 +26,7 @@ body {
 .col-table-box{
   border: 1px solid #ddd;
 }
+
+.teamTable button{
+  margin-left: 10px;
+}

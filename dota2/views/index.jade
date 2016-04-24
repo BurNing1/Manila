@@ -42,7 +42,7 @@ html
           .code
             input#phoneNum.formInput(type='text', placeholder='手机号码')
             a#sendVerificationCode(href='#') 发送验证码
-            a.lock(href='#', style='display:none;') 54秒后重新发送
+            a.lock#showTime(style='display:none;') 54秒后重新发送
           p.err#phoneCheck(style="display:none")
             i
             span 错误的手机号码
@@ -165,41 +165,41 @@ html
               // <em>（已关闭）</em>
             .show
               ul
-                li#state0
+                li#s5s4s3s2s1
                   | 12月16日
                   br
                   br
                   |                             创建比赛
                   br
-                  i
-                li#state1
+                  i#i5i4i3i2i1
+                li#s5s4s3s2
                   | 12月16日
                   br
                   br
                   |                             报名开始
                   br
-                  i.t1
-                li#state2
+                  i#i5i4i3i2
+                li#s5s4s3
                   | 12月16日
                   br
                   br
                   |                             报名截止
                   br
-                  i
-                li#state3
+                  i#i5i4i3
+                li#s5s4
                   | 12月16日
                   br
                   br
                   |                             比赛开始
                   br
-                  i
-                li#state4
+                  i#i5i4
+                li#s5
                   | 12月16日
                   br
                   br
                   |                             比赛结束
                   br
-                  i
+                  i#i5
               p.line
                 span#progress(style='width:25%')
           // 进度结束
@@ -248,8 +248,9 @@ html
               |                     第二组比赛时间为2016年5月1日~2日两天将决出第二个名额。
           // 规则结束
           // 按钮开始
-          .btnBox
-            a.t1(href='javascript:;') 暂时不可报名
+          .btnBox#signBool
+            a.t1(style="display:none") 暂时不可报名
+            a.t4(style="display:none") 以战队身份报名
             //
               <a href="javascript:;" class="t1">已结束报名</a>
               <a href="javascript:;" class="t2">已提交报名</a>

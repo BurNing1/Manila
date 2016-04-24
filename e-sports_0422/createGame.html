@@ -1,0 +1,572 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="images/swiper.min.css">
+<link rel="stylesheet" href="images/style.css">
+<title></title>
+</head>
+
+
+<body>
+<!--浮层 登录开始-->
+<div class="f_login">
+	<h3>登录电竞圈赛事系统</h3>
+    <ul>
+        <li>
+            <div class="txt">
+                <input type="text" placeholder="手机号码" />
+            </div>
+            <p class="err"><i></i><span>错误的手机号码</span></p>
+        </li>
+        <li>
+            <div class="txt">
+                <input type="text" placeholder="6~12位的数字或字母组成的登录密码" />
+            </div>
+            <p class="err"><i></i><span>错误的手机号码</span></p>
+        </li>
+        <li>
+            <a href="#" class="btn">登录</a>
+        </li>
+    </ul>
+    <div class="more cf">
+        <p class="l">
+            忘记密码？<a href="#">马上找回！</a>
+        </p>
+        <p class="r">
+            还不是会员？<a href="#">马上注册！</a>
+        </p>
+    </div>
+</div>
+<!--浮层 登录结束-->
+<!--浮层 注册开始-->
+<div class="f_register">
+	<h3>注册新用户</h3>
+    <ul>
+        <li>
+            <div class="code">
+                <input type="text" placeholder="手机号码" />
+                <a href="#">发送验证码</a>
+                <a href="#" class="lock" style="display:none;">54秒后重新发送</a>
+            </div>
+            <p class="err"><i></i><span>错误的手机号码</span></p>
+        </li>
+        <li>
+            <div class="txt">
+                <input type="text" placeholder="短信验证码" />
+            </div>
+            <p class="err"><i></i><span>错误的验证码</span></p>
+        </li>
+        <li>
+            <div class="txt">
+                <input type="text" placeholder="6~12位的数字或字母组成的登录密码" />
+            </div>
+            <p class="err"><i></i><span>不符合规则的密码</span></p>
+        </li>
+        <li>
+            <div class="txt">
+                <input type="text" placeholder="重复密码" />
+            </div>
+            <p class="err"><i></i><span>重复密码错误</span></p>
+        </li>
+        <li class="xy">
+        	<div class="box">
+            	<input type="checkbox" />
+                <span>我同意</span>
+                <a href="#">协议协议协议</a>
+                <span>和</span>
+                <a href="#">协议协议协议</a>
+                <span>相关条款。</span>
+            </div>
+            <p class="err"><i></i><span>提示语待定</span></p>
+        </li>
+        <li>
+            <a href="#" class="btn">注册</a>
+        </li>
+    </ul>
+</div>
+<!--浮层 注册结束-->
+<!--浮层 找回密码开始-->
+<div class="f_forget">
+	<h3>注册新用户</h3>
+    <!--第一步开始-->
+    <ul>
+        <li>
+            <div class="code">
+                <input type="text" placeholder="手机号码" />
+                <a href="#">发送验证码</a>
+                <a href="#" class="lock" style="display:none;">54秒后重新发送</a>
+            </div>
+            <p class="err"><i></i><span>错误的手机号码</span></p>
+        </li>
+        <li>
+            <div class="txt">
+                <input type="text" placeholder="短信验证码" />
+            </div>
+            <p class="err"><i></i><span>错误的验证码</span></p>
+        </li>
+        <li>
+            <a href="#" class="btn">确认并进行密码修改</a>
+        </li>
+        <li class="num">
+        	1/2
+        </li>
+    </ul>
+    <!--第一步结束-->
+    <!--第二步开始-->
+    <ul style="display:none;">
+        <li>
+            <div class="txt">
+                <input type="text" placeholder="6~12位的数字或字母组成的登录密码" />
+            </div>
+            <p class="err"><i></i><span>不符合规则的密码</span></p>
+        </li>
+        <li>
+            <div class="txt">
+                <input type="text" placeholder="重复密码" />
+            </div>
+            <p class="err"><i></i><span>重复密码错误</span></p>
+        </li>
+        <li>
+            <a href="#" class="btn">确认修改</a>
+        </li>
+        <li class="num">
+        	2/2
+        </li>
+    </ul>
+    <!--第二步结束-->
+</div>
+<!--浮层 找回密码结束-->
+
+<!--浮层 赛事管理开始-->
+<div class="f_ssgl">
+	<a href="javascript:;" class="btn"></a>
+</div>
+<!--浮层 赛事管理结束-->
+
+<!--浮层 报名名单开始-->
+<div class="f_bmmd">
+	<p class="bmInfo">战队数量:24/32</p>
+    <div class="listBox">
+    	<!--战队开始-->
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" style="display:none;">
+            <thead>
+                <tr>
+                	<th><span>&nbsp;</span></th>
+                    <th><span class="tc">国籍</span></th>
+                    <th><span>战队</span></th>
+                    <th><span>联系人</span></th>
+                    <th><span>ID</span></th>
+                    <th><span>手机号</span></th>
+                    <th><span>身份证信息</span></th>
+                </tr>
+            </thead>
+          <tbody>
+            <tr>
+              <td><span class="tc"><input type="checkbox" /></span></td>
+              <td><span class="tc"><img src="_temp/09.jpg" /></span></td>
+              <td><span class="w1">名字名名名字名名字字字名字名字名名字字字名字字字字名字</span></td>
+              <td><span class="w2">名字名名字字字名字</span></td>
+              <td><span>asfasdf asfda</span></td>
+              <td><span>13700000000</span></td>
+              <td><span class="w3">asdfasdfasf.jpg</span></td>
+            </tr>
+            <tr>
+              <td><span class="tc"><input type="checkbox" /></span></td>
+              <td><span class="tc"><img src="_temp/09.jpg" /></span></td>
+              <td><span class="w1">名字名名字字字名字</span></td>
+              <td><span class="w2">名字名名名字名名字字字名字字字字名字</span></td>
+              <td><span>asfasdf asfdfasdf asfda</span></td>
+              <td><span>13700000000</span></td>
+              <td><span class="w3">asdfasdfasf.jpg</span></td>
+            </tr>
+            <tr>
+              <td><span class="tc"><input type="checkbox" /></span></td>
+              <td><span class="tc"><img src="_temp/09.jpg" /></span></td>
+              <td><span class="w1">名字名名字字字名字</span></td>
+              <td><span class="w2">名字名名字字字名字</span></td>
+              <td><span>asfasdf asfda</span></td>
+              <td><span>13700000000</span></td>
+              <td><span class="w3">asdfaasdfasdfasfsdfasf.jpg</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <!--战队结束-->
+        <!--个人开始-->
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                	<th><span>&nbsp;</span></th>
+                    <th><span class="tc">国籍</span></th>
+                    <th><span>ID</span></th>
+                    <th><span>手机号</span></th>
+                    <th><span>身份证信息</span></th>
+                </tr>
+            </thead>
+          <tbody>
+            <tr>
+              <td><span class="tc"><input type="checkbox" /></span></td>
+              <td><span class="tc"><img src="_temp/09.jpg" /></span></td>
+              <td><span>asfasdf asfda</span></td>
+              <td><span>13700000000</span></td>
+              <td><span class="w3">asdfasdfasf.jpg</span></td>
+            </tr>
+            <tr>
+              <td><span class="tc"><input type="checkbox" /></span></td>
+              <td><span class="tc"><img src="_temp/09.jpg" /></span></td>
+              <td><span>asfasdf asfdfasdf asfda</span></td>
+              <td><span>13700000000</span></td>
+              <td><span class="w3">asdfasdfasf.jpg</span></td>
+            </tr>
+            <tr>
+              <td><span class="tc"><input type="checkbox" /></span></td>
+              <td><span class="tc"><img src="_temp/09.jpg" /></span></td>
+              <td><span>asfasdf asfda</span></td>
+              <td><span>13700000000</span></td>
+              <td><span class="w3">asdfaasdfasdfasfsdfasf.jpg</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <!--个人结束-->
+    </div>
+    <div class="re_pageNum cf">
+        <a href="#" class="f"></a>
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#" class="now">3</a>
+        <a href="#">4</a>
+        <span>...</span>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">7</a>
+        <a href="#" class="l"></a>
+    </div>
+    <div class="btnBox">
+    	<a href="#" class="btn1">删除</a>
+        <a href="#" class="btn2">确定</a>
+    </div>
+</div>
+<!--浮层 报名名单结束-->
+
+<!--通用半透明背景开始-->
+<div class="re_fPageBg"></div>
+<!--通用半透明背景结束-->
+<!--通用头部导航开始-->
+<div class="re_lyTopMenu">
+    <div class="re_topMenu">
+    	<h2 class="logo">电竞圈赛事系统</h2>
+    </div>
+    <p class="link">
+        <a href="#" class="app">APP下载</a>
+        <a href="#" class="login">登　录</a>
+        <!--<a href="#" class="my">我的赛事</a>
+        <a href="#" class="exit">退出登录</a>-->
+    </p>
+</div>
+<!--通用头部导航结束-->
+<!--创建游戏页开始-->
+<div class="re_page createPage">
+	<div class="pTitle">
+    	<h1><img src="images/create01.png" width="266" height="54" alt=""/></h1>
+    </div>
+	<!--面包屑开始-->
+    <div class="re_nav cf">
+    	<i class="ico_home"></i><a href="#">首页</a><span>&gt;2016英雄联盟全球总决赛</span>
+    </div>
+    <!--面包屑结束-->
+   	<!--步骤导航开始-->
+    <div class="stepNav cf">
+    	<div class="show">
+            <ul>
+                <li class="now">
+                    第一步<br /><br />
+                    <i class="t1"></i>
+                </li>
+                <li class="now">
+                    第二步<br /><br />
+                    <i class="t1"></i>
+                </li>
+                <li>
+                    第三步<br /><br />
+                    <i></i>
+                </li>
+                <li>
+                    第四步<br /><br />
+                    <i></i>
+                </li>
+                <li>
+                    第五步<br /><br />
+                    <i></i>
+                </li>
+            </ul>
+            <p class="line"><span style="width:26%"></span></p>
+        </div>
+    </div>
+    <!--步骤导航结束-->
+    <!--步骤1开始-->
+    <div class="re_setBox setpBox1" style="display:block;">
+    	<div class="mainBox">
+        	<ul>
+            	<li class="txt1 cf">
+                	<label>输入比赛名称<span>*</span></label>
+                    <div class="tshow">
+                    	<input type="text" />
+                    </div>
+                </li>
+                <li class="txt2 cf">
+                	<label>选择比赛项目<span>*</span></label>
+                    <div class="tshow">
+                    	<a href="#" class="set">请选择<i></i></a>
+                    </div>
+                </li>
+                <li class="txt3 cf">
+                	<label>上传比赛LOGO<span>*</span></label>
+                    <div class="tshow">
+                        <input type="file" class="fileBtn" />
+                        <a href="#">上传</a>
+                        <p style="display:none;">图片不大于100x100像素</p>
+                    </div>
+                </li>
+                <li class="txt4 cf">
+                	<label>赛事简介<span>*</span></label>
+                    <div class="tshow">
+                        <textarea></textarea>
+                        <p>还可以输入<em>500</em>字</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <a href="#" class="nextBtn">下一步</a>
+    </div>
+    <!--步骤1结束-->
+    <!--步骤2开始-->
+    <div class="re_setBox setpBox2">
+    	<div class="mainBox">
+        	<ul>
+            	<li class="txt1 cf">
+                	<input type="radio" /><label>战队报名</label><span>(适用于团体比赛项目例如：LOL、dota、cs等)</span>
+                </li>
+                <li class="txt2 cf">
+                	<input type="radio" /><label>个人报名</label><span>(适用于个人比赛项目例如：LOL个人赛、炉石个人等)</span>
+                </li>
+                <li class="txt3 cf">
+                	<div class="show">
+                    	<p><input type="checkbox" /><span>是否在赛事系统中公开报名</span></p>
+                    	<dl>
+                        	<dt>个人报名<em>必须</em>信息：</dt>
+                            <dd>
+                            	选手平台昵称（报名时系统自动获得，会公开）<br>
+                                选手战网ID(星级2、炉石项目必备)<br>
+                                手机号（报名时系统自动获得，不公开）
+                            </dd>
+                        </dl>
+                        <dl>
+                        	<dt>战队报名<em>可选</em>信息：</dt>
+                            <dd>
+                            	<span>比赛联系方式：</span><input type="checkbox" /><label>备用手机号</label><input type="checkbox" /><label>QQ号</label><input type="checkbox" /><label>微信号（用于选手见相互联系）</label><br><input type="checkbox" /><label>需要上传选手身份证照片</label>
+                            </dd>
+                        </dl>
+                    </div>
+                </li>
+                <li class="txt4 cf">
+                	<p><input type="checkbox" /><label>主办方提供选手名单</label></p>
+                    <dl>
+                    	<dt>上传选手明白</dt>
+                        <dd>
+                        	<input type="file" class="fileBtn" />
+                            <a href="#" class="btn">上传</a>
+                            <a href="#" class="link">查看</a>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="txt5 cf">
+                	<label>报名截止日期<span>*</span></label>
+                    <div class="tshow">
+                    	<a href="#" class="set">请选择<i></i></a>
+                    </div>
+                </li>
+                <li class="txt6 cf">
+                	<label>报名最大人数<span>&nbsp;&nbsp;</span></label>
+                    <div class="tshow">
+                    	<input type="text" /><span>公开报名时需要进行设置</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <a href="#" class="nextBtn">下一步</a>
+    </div>
+    <!--步骤2结束-->
+    <!--步骤3开始-->
+    <div class="re_setBox setpBox3">
+    	<div class="mainBox">
+        	<ul>
+            	<li class="txt1 noSelect cf">
+                	<input type="radio" /><label>单阶段比赛</label>
+                </li>
+                <li class="txt1 cf">
+                	<input type="radio" /><label>多阶段比赛</label>
+                </li>
+            </ul>
+           	<div class="txt2">
+            	<dl class="cf">
+                	<dt><label>第一阶段赛制<span>*</span></label></dt>
+                    <dd>
+                    	<a href="#" class="set">请选择<i></i></a>
+                    </dd>
+                </dl>
+                <dl class="cf">
+                	<dt><label>赛制配置<span>*</span></label></dt>
+                    <dd class="txt2_1">
+                    	<input type="text" />
+                        <label>每组参加人数</label>
+                        <input type="text" />
+                        <label>每组晋级人数</label>
+                    </dd>
+                </dl>
+                <dl class="cf">
+                	<dt><label>第二阶段赛制<span>*</span></label></dt>
+                    <dd class="txt2_2">
+                    	<a href="#" class="set">请选择<i></i></a>
+                        <input type="checkbox" />
+                        <label>包含第三名争夺战</label>
+                    </dd>
+                </dl>
+                <div class="txt2_3">
+                	<input type="checkbox" />
+                    <label>是否包含第三阶段</label>
+                </div>
+                <dl class="txt2_4 noSelect cf">
+                	<dt><label>第三阶段赛制<span>*</span></label></dt>
+                    <dd>
+                    	<a href="#" class="set">请选择<i></i></a><p></p>
+                        <a href="#" class="set">请选择<i></i></a><label>小组循环结果排名方式</label>
+                    </dd>
+                </dl>
+            </div>
+            <div class="txt3">
+            	<label>比赛结果展示<span>*</span></label>
+                <a href="#" class="set">请选择<i></i></a>
+            </div>
+        </div>
+        <a href="#" class="nextBtn">下一步</a>
+    </div>
+    <!--步骤3结束-->
+    <!--步骤4开始-->
+    <div class="re_setBox setpBox4">
+    	<div class="mainBox">
+        	<dl class="txt1 cf">
+            	<dt><input type="checkbox" /><label>选手自判方式</label></dt>
+                <dd><span>参赛选手在比赛完成后自己提交比赛结果并上传截图</span><a href="#" class="more">详情描述&gt;&gt;</a></dd>
+            </dl>
+            <dl class="txt2 cf">
+            	<dt><input type="checkbox" /><label>指定赛事裁判</label></dt>
+                <dd>
+                	<ul>
+                    	<li>由举办方提供指定的裁判用户提交比赛结果</li>
+                        <li>
+                        	<input type="text" class="txt" />
+                            <a href="#" class="btn">添加</a>
+                            <p>输入裁判手机号，用英文逗号分隔</p>
+                        </li>
+                        <li class="user">
+                        	<p>
+                            	<a href="#">测试文字<i>x</i></a>
+                                <span class="err"><i></i>系统没有此用户</span>
+                                <a href="#">测试文字<i>x</i></a>
+                            </p>
+                            <p>
+                            	<span>测试文字</span>
+                                <span class="err"><i></i>系统没有此用户</span>
+                                <span>测试文字</span>
+                            </p>
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+            <dl class="txt3 cf">
+                <dt><label>通知方式<span>*</span></label></dt>
+                <dd>
+                    <ul>
+                    	<li><input type="checkbox" /><label>当比赛开始时短信通知选手</label></li>
+                        <li><input type="checkbox" /><label>当比赛开始时短信通知裁判</label></li>
+                        <li><input type="checkbox" /><label>档每场比赛变更或者确定后通知该场次选手</label></li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <a href="#" class="nextBtn">下一步</a>
+    </div>
+    <!--步骤4结束-->
+    <!--步骤5开始-->
+    <div class="re_setBox setpBox5">
+    	<div class="mainBox">
+        	<dl class="txt1 cf">
+            	<dt><label>赛品奖励</label></dt>
+                <dd><textarea placeholder="显示在赛事信息中的奖励描述，选填"></textarea></dd>
+            </dl>
+            <dl class="txt2 cf">
+            	<dt><label>赛事奖励详情</label></dt>
+                <dd>
+                	<div class="top3">
+                        <p><input type="checkbox" /><label>前三名奖励</label></p>
+                        <ul>
+                            <li><input type="text" /><span>冠军奖励</span></li>
+                            <li><input type="text" /><span>亚军奖励</span></li>
+                            <li><input type="text" /><span>季军奖励</span></li>
+                        </ul>
+                    </div>
+                    <div class="top10 cf noSelect">
+                    	<p><input type="checkbox" /><label>三至十名奖励</label></p>
+                        <div class="cf">
+                            <ul>
+                                <li><input type="text" /><span>第四名</span></li>
+                                <li><input type="text" /><span>第五名</span></li>
+                                <li><input type="text" /><span>第六名</span></li>
+                                <li><input type="text" /><span>第七名</span></li>
+                            </ul>
+                            <ul>
+                                <li><input type="text" /><span>第八名</span></li>
+                                <li><input type="text" /><span>第九名</span></li>
+                                <li><input type="text" /><span>第十名</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+            <dl class="txt3 cf">
+            	<dt><label>赛制说明<span>*</span></label></dt>
+                <dd><textarea></textarea></dd>
+            </dl>
+        </div>
+        <a href="#" class="nextBtn">创建赛事</a>
+    </div>
+    <!--步骤5结束-->
+</div>
+<!--创建游戏页结束-->
+<!--通用底部模块开始-->
+<div class="re_footer">
+	<div class="footer">
+    	<img src="images/foot_01.png" width="160" height="77" alt="" class="logo" />
+        <p class="t1">
+        	Room XXX No.XXX,Lingshi Road, Zhabei District,Shanghai,P.R.China.<br>
+        	Tel:86+21-6xxx-2xxx Fax:86+21-xxx5-2xxx<br>
+            <a href="mailto:Service@ees.com">Service@EES.com</a>
+        </p>
+        <p class="t2">
+        	Copyright &copy; 2016 <span>www.xxxx.cn.</span>Allright reserved.<br>
+            <a href="#">沪ICP备1502xx9-1号</a>
+        </p>
+        <div class="link">
+        	<a href="#" class="wx"></a>
+            <a href="#" class="wb"></a>
+            <a href="#" class="tx"></a>
+            <a href="#" class="qq"></a>
+        </div>
+    </div>
+</div>
+<!--通用底部模块结束-->
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/page.js"></script>
+</body>
+</html>

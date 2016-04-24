@@ -1,0 +1,444 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="images/swiper.min.css">
+<link rel="stylesheet" href="images/style.css">
+<title></title>
+</head>
+
+
+<body>
+<!--浮层 登录开始-->
+<div class="f_login">
+	<h3>登录电竞圈赛事系统</h3>
+    <ul>
+        <li>
+            <div class="txt">
+                <input type="text" placeholder="手机号码" />
+            </div>
+            <p class="err"><i></i><span>错误的手机号码</span></p>
+        </li>
+        <li>
+            <div class="txt">
+                <input type="text" placeholder="6~12位的数字或字母组成的登录密码" />
+            </div>
+            <p class="err"><i></i><span>错误的手机号码</span></p>
+        </li>
+        <li>
+            <a href="#" class="btn">登录</a>
+        </li>
+    </ul>
+    <div class="more cf">
+        <p class="l">
+            忘记密码？<a href="#">马上找回！</a>
+        </p>
+        <p class="r">
+            还不是会员？<a href="#">马上注册！</a>
+        </p>
+    </div>
+</div>
+<!--浮层 登录结束-->
+<!--浮层 注册开始-->
+<div class="f_register">
+	<h3>注册新用户</h3>
+    <ul>
+        <li>
+            <div class="code">
+                <input type="text" placeholder="手机号码" />
+                <a href="#">发送验证码</a>
+                <a href="#" class="lock" style="display:none;">54秒后重新发送</a>
+            </div>
+            <p class="err"><i></i><span>错误的手机号码</span></p>
+        </li>
+        <li>
+            <div class="txt">
+                <input type="text" placeholder="短信验证码" />
+            </div>
+            <p class="err"><i></i><span>错误的验证码</span></p>
+        </li>
+        <li>
+            <div class="txt">
+                <input type="text" placeholder="6~12位的数字或字母组成的登录密码" />
+            </div>
+            <p class="err"><i></i><span>不符合规则的密码</span></p>
+        </li>
+        <li>
+            <div class="txt">
+                <input type="text" placeholder="重复密码" />
+            </div>
+            <p class="err"><i></i><span>重复密码错误</span></p>
+        </li>
+        <li class="xy">
+        	<div class="box">
+            	<input type="checkbox" />
+                <span>我同意</span>
+                <a href="#">协议协议协议</a>
+                <span>和</span>
+                <a href="#">协议协议协议</a>
+                <span>相关条款。</span>
+            </div>
+            <p class="err"><i></i><span>提示语待定</span></p>
+        </li>
+        <li>
+            <a href="#" class="btn">注册</a>
+        </li>
+    </ul>
+</div>
+<!--浮层 注册结束-->
+<!--浮层 找回密码开始-->
+<div class="f_forget">
+	<h3>注册新用户</h3>
+    <!--第一步开始-->
+    <ul>
+        <li>
+            <div class="code">
+                <input type="text" placeholder="手机号码" />
+                <a href="#">发送验证码</a>
+                <a href="#" class="lock" style="display:none;">54秒后重新发送</a>
+            </div>
+            <p class="err"><i></i><span>错误的手机号码</span></p>
+        </li>
+        <li>
+            <div class="txt">
+                <input type="text" placeholder="短信验证码" />
+            </div>
+            <p class="err"><i></i><span>错误的验证码</span></p>
+        </li>
+        <li>
+            <a href="#" class="btn">确认并进行密码修改</a>
+        </li>
+        <li class="num">
+        	1/2
+        </li>
+    </ul>
+    <!--第一步结束-->
+    <!--第二步开始-->
+    <ul style="display:none;">
+        <li>
+            <div class="txt">
+                <input type="text" placeholder="6~12位的数字或字母组成的登录密码" />
+            </div>
+            <p class="err"><i></i><span>不符合规则的密码</span></p>
+        </li>
+        <li>
+            <div class="txt">
+                <input type="text" placeholder="重复密码" />
+            </div>
+            <p class="err"><i></i><span>重复密码错误</span></p>
+        </li>
+        <li>
+            <a href="#" class="btn">确认修改</a>
+        </li>
+        <li class="num">
+        	2/2
+        </li>
+    </ul>
+    <!--第二步结束-->
+</div>
+<!--浮层 找回密码结束-->
+
+<!--浮层 小菜单开始-->
+<div class="f_sportMenu">
+	<a href="javascript:;" class="clear"></a>
+    <ul>
+    	<li><a href="#">基础信息</a></li>
+        <li><a href="#">报名方式</a></li>
+        <li><a href="#">赛事安排</a></li>
+        <li><a href="#">裁判方式</a></li>
+        <li><a href="#">完善信息</a></li>
+    </ul>
+</div>
+<!--浮层 小菜单结束-->
+
+<!--通用半透明背景开始-->
+<div class="re_fPageBg"></div>
+<!--通用半透明背景结束-->
+<!--通用头部导航开始-->
+<div class="re_lyTopMenu">
+    <div class="re_topMenu">
+    	<h2 class="logo">电竞圈赛事系统</h2>
+    </div>
+    <p class="link">
+        <a href="#" class="app">APP下载</a>
+        <a href="#" class="login">登　录</a>
+        <!--<a href="#" class="my">我的赛事</a>
+        <a href="#" class="exit">退出登录</a>-->
+    </p>
+</div>
+<!--通用头部导航结束-->
+<!--我的赛事页开始-->
+<div class="re_page mySportsPage">
+	<!--搜索框相关开始-->
+    <div class="searchBox">
+    	<div class="show cf">
+            <input class="txt" type="text" placeholder="你想查看哪个赛事？" />
+            <input class="btn" type="submit" value="搜 索" />
+        </div>
+    </div>
+    <!--搜索框相关结束-->
+    <!--面包屑开始-->
+    <div class="re_nav cf">
+    	<i class="ico_home"></i><a href="#">首页</a><span>&gt;2016英雄联盟全球总决赛</span>
+    </div>
+    <!--面包屑结束-->
+    <!--主体开始-->
+    <div class="mySportsMain cf">
+    	<!--左侧开始-->
+        <div class="mainSports">
+        	<div class="sportsList">
+            	<div class="sportShow">
+                	<em class="tag tag1">举办方</em>
+                    <div class="sportInfo cf">
+                    	<div class="sInfo1"><img src="_temp/02.jpg" width="45" height="45" alt=""/></div>
+                        <div class="sInfo2"><img src="_temp/03.jpg" width="100" height="100" alt=""/></div>
+                        <div class="sInfo3">
+                        	<div class="title">
+                            	<h3>测试文字测试文字测试文字</h3>
+                            	<span>单阶段-淘汰赛</span>
+                                <em><i></i>121</em>
+                            </div>
+                        	<div class="date">
+                            	<p class="line"><span style="width:40%"></span></p>
+                                <ul>
+                                	<li class="now">12月16日<br>创建比赛</li>
+                                    <li class="now">12月20日<br>报名开始</li>
+                                    <li>12月6日<br>报名截止</li>
+                                    <li>待定<br>比赛开始</li>
+                                    <li>待定<br>比赛结束</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sInfo4">确定对阵中</div>
+                    </div>
+                    <div class="sportNav cf">
+                    	<a href="#"><i class="ico1"></i><span>编辑赛事</span></a>
+                        <a href="#"><i class="ico2"></i><span>报名开始</span></a>
+                        <a href="#"><i class="ico3"></i><span>管理赛事</span></a>
+                        <a href="#" class="clear"><i class="ico4"></i><span>提交成绩</span></a>
+                        <a href="#" class="end"><i class="ico5"></i><span>关闭比赛</span></a>
+                    </div>
+                </div>
+                <div class="sportShow">
+                	<em class="tag tag1">举办方</em>
+                    <div class="sportInfo cf">
+                    	<div class="sInfo1"><img src="_temp/02.jpg" width="45" height="45" alt=""/></div>
+                        <div class="sInfo2"><img src="_temp/03.jpg" width="100" height="100" alt=""/></div>
+                        <div class="sInfo3">
+                        	<div class="title">
+                            	<h3>测试文字测试文字测试文字</h3>
+                            	<span>单阶段-淘汰赛</span>
+                                <em><i></i>121</em>
+                            </div>
+                        	<div class="date">
+                            	<p class="line"><span style="width:40%"></span></p>
+                                <ul>
+                                	<li class="now">12月16日<br>创建比赛</li>
+                                    <li class="now">12月20日<br>报名开始</li>
+                                    <li>12月6日<br>报名截止</li>
+                                    <li>待定<br>比赛开始</li>
+                                    <li>待定<br>比赛结束</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sInfo4">确定对阵中</div>
+                    </div>
+                    <div class="sportNav cf">
+                    	<a href="#"><i class="ico1"></i><span>编辑赛事</span></a>
+                        <a href="#"><i class="ico2"></i><span>报名开始</span></a>
+                        <a href="#"><i class="ico3"></i><span>管理赛事</span></a>
+                        <a href="#" class="clear"><i class="ico4"></i><span>提交成绩</span></a>
+                        <a href="#" class="end"><i class="ico5"></i><span>关闭比赛</span></a>
+                    </div>
+                </div>
+                <div class="sportShow">
+                	<em class="tag tag1">举办方</em>
+                    <div class="sportInfo cf">
+                    	<div class="sInfo1"><img src="_temp/02.jpg" width="45" height="45" alt=""/></div>
+                        <div class="sInfo2"><img src="_temp/03.jpg" width="100" height="100" alt=""/></div>
+                        <div class="sInfo3">
+                        	<div class="title">
+                            	<h3>测试文字测试文字测试文字</h3>
+                            	<span>单阶段-淘汰赛</span>
+                                <em><i></i>121</em>
+                            </div>
+                        	<div class="date">
+                            	<p class="line"><span style="width:40%"></span></p>
+                                <ul>
+                                	<li class="now">12月16日<br>创建比赛</li>
+                                    <li class="now">12月20日<br>报名开始</li>
+                                    <li>12月6日<br>报名截止</li>
+                                    <li>待定<br>比赛开始</li>
+                                    <li>待定<br>比赛结束</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sInfo4">确定对阵中</div>
+                    </div>
+                    <div class="sportNav cf">
+                    	<a href="#"><i class="ico1"></i><span>编辑赛事</span></a>
+                        <a href="#"><i class="ico2"></i><span>报名开始</span></a>
+                        <a href="#"><i class="ico3"></i><span>管理赛事</span></a>
+                        <a href="#" class="clear"><i class="ico4"></i><span>提交成绩</span></a>
+                        <a href="#" class="end"><i class="ico5"></i><span>关闭比赛</span></a>
+                    </div>
+                </div>
+                <div class="sportShow">
+                	<em class="tag tag2">裁判</em>
+                    <div class="sportInfo cf">
+                    	<div class="sInfo1"><img src="_temp/02.jpg" width="45" height="45" alt=""/></div>
+                        <div class="sInfo2"><img src="_temp/03.jpg" width="100" height="100" alt=""/></div>
+                        <div class="sInfo3">
+                        	<div class="title">
+                            	<h3>测试文字测试文字测试文字</h3>
+                            	<span>单阶段-淘汰赛</span>
+                                <em><i></i>121</em>
+                            </div>
+                        	<div class="date">
+                            	<p class="line"><span style="width:40%"></span></p>
+                                <ul>
+                                	<li class="now">12月16日<br>创建比赛</li>
+                                    <li class="now">12月20日<br>报名开始</li>
+                                    <li>12月6日<br>报名截止</li>
+                                    <li>待定<br>比赛开始</li>
+                                    <li>待定<br>比赛结束</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sInfo4">确定对阵中</div>
+                    </div>
+                    <div class="sportNav cf">
+                    	<a href="#"><i class="ico1"></i><span>编辑赛事</span></a>
+                        <a href="#"><i class="ico2"></i><span>报名开始</span></a>
+                        <a href="#"><i class="ico3"></i><span>管理赛事</span></a>
+                        <a href="#" class="clear"><i class="ico4"></i><span>提交成绩</span></a>
+                        <a href="#" class="end"><i class="ico5"></i><span>关闭比赛</span></a>
+                    </div>
+                </div>
+                <div class="sportShow">
+                	<em class="tag tag3">选手</em>
+                    <div class="sportInfo cf">
+                    	<div class="sInfo1"><img src="_temp/02.jpg" width="45" height="45" alt=""/></div>
+                        <div class="sInfo2"><img src="_temp/03.jpg" width="100" height="100" alt=""/></div>
+                        <div class="sInfo3">
+                        	<div class="title">
+                            	<h3>测试文字测试文字测试文字</h3>
+                            	<span>单阶段-淘汰赛</span>
+                                <em><i></i>121</em>
+                            </div>
+                        	<div class="date">
+                            	<p class="line"><span style="width:40%"></span></p>
+                                <ul>
+                                	<li class="now">12月16日<br>创建比赛</li>
+                                    <li class="now">12月20日<br>报名开始</li>
+                                    <li>12月6日<br>报名截止</li>
+                                    <li>待定<br>比赛开始</li>
+                                    <li>待定<br>比赛结束</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sInfo4">确定对阵中</div>
+                    </div>
+                    <div class="sportNav cf">
+                    	<a href="#"><i class="ico1"></i><span>编辑赛事</span></a>
+                        <a href="#"><i class="ico2"></i><span>报名开始</span></a>
+                        <a href="#"><i class="ico3"></i><span>管理赛事</span></a>
+                        <a href="#" class="clear"><i class="ico4"></i><span>提交成绩</span></a>
+                        <a href="#" class="end"><i class="ico5"></i><span>关闭比赛</span></a>
+                    </div>
+                </div>
+                <div class="sportShow">
+                	<em class="tag tag1">举办方</em>
+                    <div class="sportInfo cf">
+                    	<div class="sInfo1"><img src="_temp/02.jpg" width="45" height="45" alt=""/></div>
+                        <div class="sInfo2"><img src="_temp/03.jpg" width="100" height="100" alt=""/></div>
+                        <div class="sInfo3">
+                        	<div class="title">
+                            	<h3>测试文字测试文字测试文字</h3>
+                            	<span>单阶段-淘汰赛</span>
+                                <em><i></i>121</em>
+                            </div>
+                        	<div class="date">
+                            	<p class="line"><span style="width:40%"></span></p>
+                                <ul>
+                                	<li class="now">12月16日<br>创建比赛</li>
+                                    <li class="now">12月20日<br>报名开始</li>
+                                    <li>12月6日<br>报名截止</li>
+                                    <li>待定<br>比赛开始</li>
+                                    <li>待定<br>比赛结束</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sInfo4">确定对阵中</div>
+                    </div>
+                    <div class="sportNav cf">
+                    	<a href="#"><i class="ico1"></i><span>编辑赛事</span></a>
+                        <a href="#"><i class="ico2"></i><span>报名开始</span></a>
+                        <a href="#"><i class="ico3"></i><span>管理赛事</span></a>
+                        <a href="#" class="clear"><i class="ico4"></i><span>提交成绩</span></a>
+                        <a href="#" class="end"><i class="ico5"></i><span>关闭比赛</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="re_pageNum cf">
+                <a href="#" class="f"></a>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a href="#" class="now">3</a>
+                <a href="#">4</a>
+                <span>...</span>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">7</a>
+                <a href="#" class="l"></a>
+            </div>
+        </div>
+        <!--左侧结束-->
+        <!--右侧开始-->
+        <div class="othSports">
+        	<a href="#" class="btn">+ 创建赛事</a>
+            <div class="nav">
+                <dl>
+                    <dt>所有赛事</dt>
+                    <dd><a href="#">编辑/审核</a></dd>
+                    <dd><a href="#">报名中</a></dd>
+                    <dd><a href="#">确定对阵中</a></dd>
+                    <dd><a href="#">进行中</a><span>4</span></dd>
+                    <dd><a href="#">比赛结束</a></dd>
+                    <dd><a href="#">参加的赛事</a></dd>
+                    <dd><a href="#" class="e">管理的赛事</a></dd>
+                </dl>
+            </div>
+        </div>
+        <!--右侧结束-->
+    </div>
+    <!--主体结束-->
+</div>
+<!--我的赛事页结束-->
+<!--通用底部模块开始-->
+<div class="re_footer">
+	<div class="footer">
+    	<img src="images/foot_01.png" width="160" height="77" alt="" class="logo" />
+        <p class="t1">
+        	Room XXX No.XXX,Lingshi Road, Zhabei District,Shanghai,P.R.China.<br>
+        	Tel:86+21-6xxx-2xxx Fax:86+21-xxx5-2xxx<br>
+            <a href="mailto:Service@ees.com">Service@EES.com</a>
+        </p>
+        <p class="t2">
+        	Copyright &copy; 2016 <span>www.xxxx.cn.</span>Allright reserved.<br>
+            <a href="#">沪ICP备1502xx9-1号</a>
+        </p>
+        <div class="link">
+        	<a href="#" class="wx"></a>
+            <a href="#" class="wb"></a>
+            <a href="#" class="tx"></a>
+            <a href="#" class="qq"></a>
+        </div>
+    </div>
+</div>
+<!--通用底部模块结束-->
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/page.js"></script>
+</body>
+</html>

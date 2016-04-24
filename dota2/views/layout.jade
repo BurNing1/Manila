@@ -1,13 +1,148 @@
 doctype html
 html
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    script(src='/js/jquery.min.js')
-    script(src='/js/bootstrap.min.js')
-    script(src='/js/jquery.form.js')
-    script(src="/js/index.js",type="text/javascript")
-    script(src="/js/common.js",type="text/javascript")
+    meta(charset='UTF-8')
+    link(rel='stylesheet', href='images/swiper.min.css')
+    link(rel='stylesheet', href='images/style.css')
+    script(src='js/jquery-1.7.2.min.js')
+    script(src='js/swiper.min.js')
+    script(src='js/page.js')
+    title 马尼拉特锦赛中国区海选 NEOTV 主办
   body
+    .f_login
+      h3 登录电竞圈赛事系统
+      ul
+        li
+          .txt
+            input#logPhone(type='text', placeholder='手机号码')
+          p.err
+            i
+            span 错误的手机号码
+        li
+          .txt
+            input#logPwd(type='password', placeholder='6~12位的数字或字母组成的登录密码')
+          p.err
+            i
+            span 错误的手机号码
+        li
+          a.btn#login 登录
+      .more.cf
+        p.l
+          | 忘记密码？
+          a 马上找回！
+        p.r
+          | 还不是会员？
+          a 马上注册！
+    .f_register
+      h3 注册新用户
+      ul
+        li
+          .code
+            input#phoneNum.formInput(type='text', placeholder='手机号码')
+            a#sendVerificationCode(href='#') 发送验证码
+            a.lock#showTime(style='display:none;') 54秒后重新发送
+          p.err#phoneCheck(style="display:none")
+            i
+            span 错误的手机号码
+        li
+          .txt
+            input#code.formInput(type='text', placeholder='短信验证码')
+          //p.err
+          //  i
+          //  span 错误的验证码
+        li
+          .txt
+            input#password.formInput(type='password', placeholder='6~12位的数字或字母组成的登录密码')
+          p.err#passCheck(style="display:none")
+            i
+            span 不符合规则的密码
+        li
+          .txt
+            input#REpassword.formInput(type='password', placeholder='重复密码')
+          p.err#RECheck(style="display:none")
+            i
+            span 重复密码错误
+        li.xy
+          //.box
+          //  input#agree(type='checkbox')
+          //  span 我同意
+          //  a(href='#') 协议协议协议
+          //  span 和
+          //  a(href='#') 协议协议协议
+          //  span 相关条款。
+          p.err#warning(style="display:none")
+            i
+            span
+        li
+          a.btn#register(href='#') 注册
+    // 浮层 注册结束
+    // 浮层 找回密码开始
+    .f_forget
+      h3 注册新用户
+      // 第一步开始
+      ul
+        li
+          .code
+            input(type='text', placeholder='手机号码')
+            a(href='#') 发送验证码
+            a.lock(href='#', style='display:none;') 54秒后重新发送
+          p.err
+            i
+            span 错误的手机号码
+        li
+          .txt
+            input(type='text', placeholder='短信验证码')
+          p.err
+            i
+            span 错误的验证码
+        li
+          a.btn(href='#') 确认并进行密码修改
+        li.num
+          | 1/2
+      // 第一步结束
+      // 第二步开始
+      ul(style='display:none;')
+        li
+          .txt
+            input(type='password', placeholder='6~12位的数字或字母组成的登录密码')
+          p.err
+            i
+            span 不符合规则的密码
+        li
+          .txt
+            input(type='password', placeholder='重复密码')
+          p.err
+            i
+            span 重复密码错误
+        li
+          a.btn(href='#') 确认修改
+        li.num
+          | 2/2
+    .re_fPageBg
+    .re_lyTopMenu
+      .re_topMenu
+        h2.logo 电竞圈赛事系统
+      p.link#logoutState
+        a.my(href='#') 注　册
+        a.login(href='#') 登　录
+      p.link#loginState(style="display:none")
+        a
+        a.logout#logout 登出
+        a.signState
+        //
+          <a href="#" class="my">我的赛事</a>
+          <a href="#" class="exit">退出登录</a>
     block content
+
+    .re_footer
+      .footer
+        img.logo(src='images/foot_01.png', width='160', height='77', alt='')
+        p.t2
+          | Copyright © 2016
+          span=config.main_domain
+          | .
+          | Allright reserved.
+          br
+          a=config.icp
+  // 通用底部模块结束
+

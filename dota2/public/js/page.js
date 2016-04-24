@@ -1,9 +1,11 @@
 //首页
+var loginState = false;
+window.onload = onloadFunction;
 $(function(){
 	$.get('/management/signState',function(data){
 		var progress = $("#progress");
 		switch (data){
-			case "null":
+			case null:
 				progress.css("width","0");
 				$("li[id*='s1']").addClass("now");
 				$("#signBool .t1").css("display","block");
@@ -42,16 +44,24 @@ $(function(){
 	$.get('/getSession',function(data){
 		for(var i in data) {
 			if (data[i].id == document.cookie) {
-				$("#logoutState").css("display","none");
-				$("#loginState").css("display","block").children("a:eq(0)").text(data[i].mobile);
+				loginState = true;
+				var userMess = data[i];
+				$.get("/users/form/"+userMess.id,function(bool){
+					$("#logoutState").css("display","none");
+					$("#loginState").css("display","block").children("a:eq(0)").text(userMess.mobile);
+					if(bool){
+						$("#loginState a:eq(2)").text("已报名");
+					}else{
+						$("#loginState a:eq(2)").text("未报名");
+					}
+				});
 			}
 		}
 	});
 	var testForm = {
 		phone:false,
 		pass:false,
-		passCheck:false,
-		agree:false
+		passCheck:false
 	};
 	//发送验证码
 	$("#sendVerificationCode").click(function(){
@@ -68,10 +78,6 @@ $(function(){
 		var result = testRegister();
 		var warning = $("#warning");
 		switch (result){
-			case "agree":
-				warning.css("display","block");
-				warning.children("span").text("请阅读条款并同意");
-				break;
 			case "else":
 				warning.css("display","block");
 				warning.children("span").text("请填完正确有效信息");
@@ -79,7 +85,6 @@ $(function(){
 			case "OK":
 				$.post("/register",{phone:num,code:code,password:password},function(data){
 					if(data == 200){
-						alert("注册成功");
 						window.location.reload();
 					}else{
 						alert("验证码错误");
@@ -87,9 +92,6 @@ $(function(){
 				});
 				break;
 		}
-	});
-	$("#signBool>.t4").click(function(){
-		window.location.href="/enroll"
 	});
 	//验证手机号
 	$("#phoneNum").on("input",function(){
@@ -137,18 +139,33 @@ $(function(){
 		}
 	});
 	//登录
-	$("#login").click(function(){
+	$("#login").unbind("click").bind("click",function(){
 		var phone = $("#logPhone").val();
 		var pwd = $("#logPwd").val();
 		$.get('/getSession',function(data) {
+			var bool = true,bool1 = false;
 			for(var i in data){
 				if(data[i].mobile == phone && data[i].pwd == pwd){
 					delCookie();
 					var hours = 1;
+					bool = false;
 					var exp = new Date();
 					exp.setTime(exp.getTime() + hours*60*60*1000);
 					document.cookie =data[i].id+";expires=" + exp.toGMTString();
 					window.location.reload();
+				}else if(data[i].mobile == phone){
+					bool1 = true;
+				}
+			}
+			if(bool1){
+				alert("手机号或密码错误");
+				return;
+			}
+			if(bool){
+				if(confirm("您还未注册,是否注册?")){
+					$('.re_fPageBg').show();
+					$('.f_register').show();
+					initialization();
 				}
 			}
 		})
@@ -213,6 +230,8 @@ $(function(){
 		$(this).hide();
 	});
 	function initialization(){
+		$("#logPhone").val("");
+		$("#logPwd").val("");
 		$(".formInput").val("");
 		$(".err").css("display","none");
 		$("#agree").prop("checked",false);
@@ -226,11 +245,8 @@ $(function(){
 		};
 	}
 	function testRegister(){
-		testForm.agree = $("#agree").prop("checked");
-		if(testForm.phone && testForm.pass && testForm.passCheck && testForm.agree){
+		if(testForm.phone && testForm.pass && testForm.passCheck){
 			return "OK";
-		}else if(testForm.phone && testForm.pass && testForm.passCheck && !testForm.agree){
-			return "agree";
 		}else{
 			return "else";
 		}
@@ -253,9 +269,10 @@ $(function(){
 		$(this).parent('ul').hide();
 	});
 	$("#postTeamMessage").click(function(){
+		$(this).css("display","none");
 		$.ajax({
 			data:{
-				match_id:726,
+				uid:document.cookie,
 				battle_name:$("#teamName").val(),
 				battle_id:$("#personID").val(),
 				mobile:$("#phoneNum").val(),
@@ -267,6 +284,7 @@ $(function(){
 			dataType: 'json',
 			async: false,
 			success: function (data) {
+				window.location.href("/");
 			}
 		});
 	})
@@ -306,7 +324,19 @@ function delCookie(){
 	var Co = document.cookie;
 	document.cookie =Co+";expires=" + del.toGMTString();
 }
-
+function onloadFunction(){
+	$("#signBool>.t4").click(function(){
+		if(!loginState){
+			if(confirm("还未登录,是否登录?")){
+				$('.re_fPageBg').show();
+				$('.f_login').show();
+				initialization();
+			}
+		}else{
+			window.location.href="/enroll";
+		}
+	});
+}
 
 
 

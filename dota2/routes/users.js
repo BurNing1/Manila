@@ -33,4 +33,17 @@ router.get('/code/:mobile',function (req, res, next) {
     else { res.send(e); }
   });
 });
+router.get('/form/:id',function(req,res){
+  req.models.enroll.find({ uid: req.params.id }, function (err, match) {
+    if(err){
+      console.log(err);
+    }else{
+      if(match.length == 0){
+        res.json(false);
+      }else{
+        res.json(true);
+      }
+    }
+  })
+});
 module.exports = router;

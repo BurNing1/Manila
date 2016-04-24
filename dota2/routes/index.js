@@ -38,7 +38,6 @@ function appendUser(data,req){
     pwd:data.password,
     enabled:true
   };
-  console.log(p);
   req.models.userMessage.create(p, function(err, results) {
     if(!err) console.log(err);
     console.log(results);

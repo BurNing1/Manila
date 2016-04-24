@@ -1,991 +1,835 @@
 //
    Created by huangchaohui on 16/4/24.
-doctype html
-html
-  head
-    meta(charset='UTF-8')
-    link(rel='stylesheet', href='images/swiper.min.css')
-    link(rel='stylesheet', href='images/style.css')
-    title
-  body
-    // 浮层 登录开始
-    .f_login
-      h3 登录电竞圈赛事系统
-      ul
-        li
-          .txt
-            input#logPhone(type='text', placeholder='手机号码')
-          p.err
-            i
-            span 错误的手机号码
-        li
-          .txt
-            input#logPwd(type='text', placeholder='6~12位的数字或字母组成的登录密码')
-          p.err
-            i
-            span 错误的手机号码
-        li
-          a.btn#login(href='#') 登录
-      .more.cf
-        p.l
-          | 忘记密码？
-          a(href='#') 马上找回！
-        p.r
-          | 还不是会员？
-          a(href='#') 马上注册！
-    // 浮层 登录结束
-    // 浮层 注册开始
-    .f_register
-      h3 注册新用户
-      ul
-        li
-          .code
-            input#phoneNum.formInput(type='text', placeholder='手机号码')
-            a#sendVerificationCode(href='#') 发送验证码
-            a.lock#showTime(style='display:none;') 54秒后重新发送
-          p.err#phoneCheck(style="display:none")
-            i
-            span 错误的手机号码
-        li
-          .txt
-            input#code.formInput(type='text', placeholder='短信验证码')
-          //p.err
-          //  i
-          //  span 错误的验证码
-        li
-          .txt
-            input#password.formInput(type='password', placeholder='6~12位的数字或字母组成的登录密码')
-          p.err#passCheck(style="display:none")
-            i
-            span 不符合规则的密码
-        li
-          .txt
-            input#REpassword.formInput(type='password', placeholder='重复密码')
-          p.err#RECheck(style="display:none")
-            i
-            span 重复密码错误
-        li.xy
-          .box
-            input#agree(type='checkbox')
-            span 我同意
-            a(href='#') 协议协议协议
-            span 和
-            a(href='#') 协议协议协议
-            span 相关条款。
-          p.err#warning(style="display:none")
-            i
-            span
-        li
-          a.btn#register(href='#') 注册
-    // 浮层 注册结束
-    // 浮层 找回密码开始
-    .f_forget
-      h3 注册新用户
-      // 第一步开始
-      ul
-        li
-          .code
-            input(type='text', placeholder='手机号码')
-            a(href='#') 发送验证码
-            a.lock(href='#', style='display:none;') 54秒后重新发送
-          p.err
-            i
-            span 错误的手机号码
-        li
-          .txt
-            input(type='text', placeholder='短信验证码')
-          p.err
-            i
-            span 错误的验证码
-        li
-          a.btn(href='#') 确认并进行密码修改
-        li.num
-          | 1/2
-      // 第一步结束
-      // 第二步开始
-      ul(style='display:none;')
-        li
-          .txt
-            input(type='text', placeholder='6~12位的数字或字母组成的登录密码')
-          p.err
-            i
-            span 不符合规则的密码
-        li
-          .txt
-            input(type='text', placeholder='重复密码')
-          p.err
-            i
-            span 重复密码错误
-        li
-          a.btn(href='#') 确认修改
-        li.num
-          | 2/2
-      // 第二步结束
-    // 浮层 找回密码结束
-    // 通用半透明背景开始
-    .re_fPageBg
-    // 通用半透明背景结束
-    // 通用头部导航开始
-    .re_lyTopMenu
-      .re_topMenu
-        h2.logo 电竞圈赛事系统
-      p.link#logoutState
-        a.my(href='#') 注　册
-        a.login(href='#') 登　录
-      p.link#loginState(style="display:none")
-        a
-        a.logout#logout 登出
-        //
-          <a href="#" class="my">我的赛事</a>
-          <a href="#" class="exit">退出登录</a>
-    // 通用头部导航结束
-    // 赛事页开始
-    .re_page.competitionPage
-      // 面包屑开始
-      // 面包屑结束
-      // banner开始
-      .banner
-        img(src='_temp/06.jpg', width='100%', alt='')
-      // banner结束
-      // 赛事主体开始
-      .competitionMain
-        .pageTab.cf
-          a.now(href='javascript:;') 赛事介绍
-          a(href='javascript:;') 对阵详情
-        // 介绍开始
-        .mainShow.interBox
-          // 进度开始
-          .scheduleBox
-            .title.cf
-              img(src='_temp/07.png', width='48', height='48', alt='')
+extends layout
+
+block content
+
+
+  // 通用头部导航结束
+  // 赛事页开始
+  .re_page.competitionPage
+    // 面包屑开始
+    // 面包屑结束
+    // banner开始
+    .banner
+      img(src='_temp/06.jpg', width='100%', alt='')
+    // banner结束
+    // 赛事主体开始
+    .competitionMain
+      .pageTab.cf
+        a.now(href='javascript:;') 赛事介绍
+        a(href='javascript:;') 对阵详情
+      // 介绍开始
+      .mainShow.interBox
+        // 进度开始
+        .scheduleBox
+          .title.cf
+            img(src='_temp/07.png', width='48', height='48', alt='')
+            p
+              strong 2016马尼拉特锦赛中国赛区
+              span
+                strong 预选赛
+            // <em>（已关闭）</em>
+          .show
+            ul
+              li#s5s4s3s2s1
+                | 12月16日
+                br
+                br
+                |                             创建比赛
+                br
+                i#i5i4i3i2i1
+              li#s5s4s3s2
+                | 12月16日
+                br
+                br
+                |                             报名开始
+                br
+                i#i5i4i3i2
+              li#s5s4s3
+                | 12月16日
+                br
+                br
+                |                             报名截止
+                br
+                i#i5i4i3
+              li#s5s4
+                | 12月16日
+                br
+                br
+                |                             比赛开始
+                br
+                i#i5i4
+              li#s5
+                | 12月16日
+                br
+                br
+                |                             比赛结束
+                br
+                i#i5
+            p.line
+              span#progress(style='width:25%')
+        // 进度结束
+        // 数据开始
+        .dataBox
+          dl.cf
+            dt
+              img(src='_temp/08.png', width='117', height='115', alt='')
+            dd
+              h4 2016 马尼拉特锦赛 中国赛区预选赛
               p
-                strong 2016马尼拉特锦赛中国赛区
-                span
-                  strong 预选赛
-              // <em>（已关闭）</em>
-            .show
-              ul
-                li#s5s4s3s2s1
-                  | 12月16日
-                  br
-                  br
-                  |                             创建比赛
-                  br
-                  i#i5i4i3i2i1
-                li#s5s4s3s2
-                  | 12月16日
-                  br
-                  br
-                  |                             报名开始
-                  br
-                  i#i5i4i3i2
-                li#s5s4s3
-                  | 12月16日
-                  br
-                  br
-                  |                             报名截止
-                  br
-                  i#i5i4i3
-                li#s5s4
-                  | 12月16日
-                  br
-                  br
-                  |                             比赛开始
-                  br
-                  i#i5i4
-                li#s5
-                  | 12月16日
-                  br
-                  br
-                  |                             比赛结束
-                  br
-                  i#i5
-              p.line
-                span#progress(style='width:25%')
-          // 进度结束
-          // 数据开始
-          .dataBox
-            dl.cf
-              dt
-                img(src='_temp/08.png', width='117', height='115', alt='')
-              dd
-                h4 2016 马尼拉特锦赛 中国赛区预选赛
-                p
-                  | TI5之后Valve宣布开启DOTA2四大联赛模式，即每年的春夏秋冬会在全球举办DOTA2四大联赛。15年11月法兰克福秋季赛受到业内一致好评。虽然上海冬季赛国内队伍全军覆没但调整之后的西恩DOTA将会在新赛季中再现辉煌！
-                  | 此比赛为东南亚特级锦标赛上海赛区的公开赛阶段，各个报名队伍将争夺前往马尼拉的两个名额。
-                .list
-                  ul.cf
-                    li
-                      span 赛事名称：
-                      em 2016马尼拉特锦赛中国赛区预选赛
-                    li
-                      span 　总奖金：
-                      em 马尼拉特锦赛名额 两名
-                    li
-                      span 比赛项目：
-                      em DOTA2
-                    li
-                      span 报名方式：
-                      em 线上报名
-                    li
-                      span 比赛版本：
-                      em 最新版本
-                    li
-                      span 比赛地点：
-                      em 线上赛
-          // 数据结束
-          // 规则开始
-          .ruleBox
-            h3 赛制说明
-            .show
-              | 本比赛公开报名，根据实际报名人数随机分为2组，分别进行BO1的单淘线上赛。
-              br
-              br
-              |                     比赛报名时间为2016年4月26日至28日中午12点截止。
-              br
-              |                     第一组比赛时间为2016年4月29日~30日两天将决出首个名额。
-              br
-              |                     第二组比赛时间为2016年5月1日~2日两天将决出第二个名额。
-          // 规则结束
-          // 按钮开始
-          .btnBox#signBool
-            a.t1(style="display:none") 暂时不可报名
-            a.t4(style="display:none") 以战队身份报名
-            //
-              <a href="javascript:;" class="t1">已结束报名</a>
-              <a href="javascript:;" class="t2">已提交报名</a>
-              <a href="javascript:;" class="t3">以个人身份报名(200/245)</a>
-              <a href="javascript:;" class="t4">以战队身份报名(200/245)</a>
-          // 按钮结束
-        // 介绍结束
-        // 名单开始
-        // 名单结束
-        // 对阵开始
-        .mainShow.re_vsBox(style='display:none;')
-          .bg
-            .title.cf
-              img(src='_temp/07.png', width='48', height='48', alt='')
-              p
-                strong 测试文字测试文字字测试文字
-                span 测试文字测试文字测试文字测试文字测试文字
-            .search.cf
-              input.txt(type='text', placeholder='选手ID')
-              a.btn(href='#') 定位
-            .vsMain.cf
-              // 模块开始
-              .re_vsTableBox
-                table(width='100%', border='0', cellspacing='0', cellpadding='0')
-                  thead
-                    tr
-                      th(colspan='3')
-                        span.c1 A组
-                      th
-                        span 胜
-                      th
-                        span 平
-                      th
-                        span 负
-                      th
-                        span 大场
-                      th
-                        span 小场
-                      th
-                        span 积分
-                  tbody
-                    tr.opt
-                      td
-                        span 1.
-                      td
-                        span
-                          img(src='_temp/09.jpg')
-                      td
-                        span.tl.w1 名字名名字名字名字名名字名字名字字名字名字字名字
-                      td
-                        span 3
-                      td
-                        span 0
-                      td
-                        span 0
-                      td
-                        span 3-0
-                      td
-                        span 13-0
-                      td
-                        span 9
-                    tr.opt
-                      td
-                        span 1.
-                      td
-                        span
-                          img(src='_temp/09.jpg')
-                      td
-                        span.tl 名字名字名字
-                      td
-                        span 3
-                      td
-                        span 999
-                      td
-                        span 0
-                      td
-                        span 3-990
-                      td
-                        span 3-0
-                      td
-                        span 9
-                    tr
-                      td
-                        span 22.
-                      td
-                        span
-                          img(src='_temp/09.jpg')
-                      td
-                        span.tl 名字名字名字
-                      td
-                        span 3
-                      td
-                        span 0
-                      td
-                        span 0
-                      td
-                        span 3-0
-                      td
-                        span 3-0
-                      td
-                        span 9
-                    tr
-                      td
-                        span 22.
-                      td
-                        span
-                          img(src='_temp/09.jpg')
-                      td
-                        span.tl 名字名字名字
-                      td
-                        span 3
-                      td
-                        span 0
-                      td
-                        span 0
-                      td
-                        span 3-0
-                      td
-                        span 3-0
-                      td
-                        span 9
-                table(width='100%', border='0', cellspacing='0', cellpadding='0')
-                  thead
-                    tr
-                      th(colspan='4')
-                        span.tl 详细对阵
-                  tbody
-                    tr
-                      td(rowspan='2')
-                        span.w2 第一轮
-                      td
-                        span.w1 xxx Team
-                      td
-                        span
-                          | 3
-                          em.c2.p1 VS
-                          | 0
-                      td
-                        span.w1 LGM lOl
-                    tr
-                      td
-                        span.w1 Santababy
-                      td
-                        span
-                          | 2
-                          em.c2.p1 VS
-                          | 1
-                      td
-                        span.w1 天堂
-                    tr
-                      td(rowspan='2')
-                        span.w2 第一轮
-                      td
-                        span.w1 xxx Team
-                      td
-                        span
-                          | 3
-                          em.c2.p1 VS
-                          | 0
-                      td
-                        span.w1 LGM lOl
-                    tr
-                      td
-                        span.w1 Santababy
-                      td
-                        span
-                          | 2
-                          em.c2.p1 VS
-                          | 1
-                      td
-                        span.w1 天堂
-                    tr
-                      td(rowspan='2')
-                        span.w2 第一轮
-                      td
-                        span.w1 xxx Team
-                      td
-                        span
-                          | 999
-                          em.c2.p1 VS
-                          | 999
-                      td
-                        span.w1 LGM lOl
-                    tr
-                      td
-                        span.w1 Santababy
-                      td
-                        span
-                          | 2
-                          em.c2.p1 VS
-                          | 1
-                      td
-                        span.w1 天堂
-              // 模块开始
-              // 模块开始
-              .re_vsTableBox
-                table(width='100%', border='0', cellspacing='0', cellpadding='0')
-                  thead
-                    tr
-                      th(colspan='3')
-                        span.c1 A组
-                      th
-                        span 胜
-                      th
-                        span 平
-                      th
-                        span 负
-                      th
-                        span 大场
-                      th
-                        span 小场
-                      th
-                        span 积分
-                  tbody
-                    tr
-                      td
-                        span 1.
-                      td
-                        span
-                          img(src='_temp/09.jpg')
-                      td
-                        span.tl.w1 名字名名字名字名字名名字名字名字字名字名字字名字
-                      td
-                        span 3
-                      td
-                        span 0
-                      td
-                        span 0
-                      td
-                        span 3-0
-                      td
-                        span 13-0
-                      td
-                        span 9
-                    tr
-                      td
-                        span 1.
-                      td
-                        span
-                          img(src='_temp/09.jpg')
-                      td
-                        span.tl 名字名字名字
-                      td
-                        span 3
-                      td
-                        span 999
-                      td
-                        span 0
-                      td
-                        span 3-990
-                      td
-                        span 3-0
-                      td
-                        span 9
-                    tr
-                      td
-                        span 22.
-                      td
-                        span
-                          img(src='_temp/09.jpg')
-                      td
-                        span.tl 名字名字名字
-                      td
-                        span 3
-                      td
-                        span 0
-                      td
-                        span 0
-                      td
-                        span 3-0
-                      td
-                        span 3-0
-                      td
-                        span 9
-                    tr
-                      td
-                        span 22.
-                      td
-                        span
-                          img(src='_temp/09.jpg')
-                      td
-                        span.tl 名字名字名字
-                      td
-                        span 3
-                      td
-                        span 0
-                      td
-                        span 0
-                      td
-                        span 3-0
-                      td
-                        span 3-0
-                      td
-                        span 9
-                table(width='100%', border='0', cellspacing='0', cellpadding='0')
-                  thead
-                    tr
-                      th(colspan='4')
-                        span.tl 详细对阵
-                  tbody
-                    tr
-                      td(rowspan='2')
-                        span.w2 第一轮
-                      td
-                        span.w1 xxx Team
-                      td
-                        span
-                          | 3
-                          em.c2.p1 VS
-                          | 0
-                      td
-                        span.w1 LGM lOl
-                    tr
-                      td
-                        span.w1 Santababy
-                      td
-                        span
-                          | 2
-                          em.c2.p1 VS
-                          | 1
-                      td
-                        span.w1 天堂
-                    tr
-                      td(rowspan='2')
-                        span.w2 第一轮
-                      td
-                        span.w1 xxx Team
-                      td
-                        span
-                          | 3
-                          em.c2.p1 VS
-                          | 0
-                      td
-                        span.w1 LGM lOl
-                    tr
-                      td
-                        span.w1 Santababy
-                      td
-                        span
-                          | 2
-                          em.c2.p1 VS
-                          | 1
-                      td
-                        span.w1 天堂
-                    tr
-                      td(rowspan='2')
-                        span.w2 第一轮
-                      td
-                        span.w1 xxx Team
-                      td
-                        span
-                          | 999
-                          em.c2.p1 VS
-                          | 999
-                      td
-                        span.w1 LGM lOl
-                    tr
-                      td
-                        span.w1 Santababy
-                      td
-                        span
-                          | 2
-                          em.c2.p1 VS
-                          | 1
-                      td
-                        span.w1 天堂
-              // 模块开始
-              // 模块开始
-              .re_vsTableBox
-                table(width='100%', border='0', cellspacing='0', cellpadding='0')
-                  thead
-                    tr
-                      th(colspan='3')
-                        span.c1 A组
-                      th
-                        span 胜
-                      th
-                        span 平
-                      th
-                        span 负
-                      th
-                        span 大场
-                      th
-                        span 小场
-                      th
-                        span 积分
-                  tbody
-                    tr
-                      td
-                        span 1.
-                      td
-                        span
-                          img(src='_temp/09.jpg')
-                      td
-                        span.tl.w1 名字名名字名字名字名名字名字名字字名字名字字名字
-                      td
-                        span 3
-                      td
-                        span 0
-                      td
-                        span 0
-                      td
-                        span 3-0
-                      td
-                        span 13-0
-                      td
-                        span 9
-                    tr
-                      td
-                        span 1.
-                      td
-                        span
-                          img(src='_temp/09.jpg')
-                      td
-                        span.tl 名字名字名字
-                      td
-                        span 3
-                      td
-                        span 999
-                      td
-                        span 0
-                      td
-                        span 3-990
-                      td
-                        span 3-0
-                      td
-                        span 9
-                    tr
-                      td
-                        span 22.
-                      td
-                        span
-                          img(src='_temp/09.jpg')
-                      td
-                        span.tl 名字名字名字
-                      td
-                        span 3
-                      td
-                        span 0
-                      td
-                        span 0
-                      td
-                        span 3-0
-                      td
-                        span 3-0
-                      td
-                        span 9
-                    tr
-                      td
-                        span 22.
-                      td
-                        span
-                          img(src='_temp/09.jpg')
-                      td
-                        span.tl 名字名字名字
-                      td
-                        span 3
-                      td
-                        span 0
-                      td
-                        span 0
-                      td
-                        span 3-0
-                      td
-                        span 3-0
-                      td
-                        span 9
-                table(width='100%', border='0', cellspacing='0', cellpadding='0')
-                  thead
-                    tr
-                      th(colspan='4')
-                        span.tl 详细对阵
-                  tbody
-                    tr
-                      td(rowspan='2')
-                        span.w2 第一轮
-                      td
-                        span.w1 xxx Team
-                      td
-                        span
-                          | 3
-                          em.c2.p1 VS
-                          | 0
-                      td
-                        span.w1 LGM lOl
-                    tr
-                      td
-                        span.w1 Santababy
-                      td
-                        span
-                          | 2
-                          em.c2.p1 VS
-                          | 1
-                      td
-                        span.w1 天堂
-                    tr
-                      td(rowspan='2')
-                        span.w2 第一轮
-                      td
-                        span.w1 xxx Team
-                      td
-                        span
-                          | 3
-                          em.c2.p1 VS
-                          | 0
-                      td
-                        span.w1 LGM lOl
-                    tr
-                      td
-                        span.w1 Santababy
-                      td
-                        span
-                          | 2
-                          em.c2.p1 VS
-                          | 1
-                      td
-                        span.w1 天堂
-                    tr
-                      td(rowspan='2')
-                        span.w2 第一轮
-                      td
-                        span.w1 xxx Team
-                      td
-                        span
-                          | 999
-                          em.c2.p1 VS
-                          | 999
-                      td
-                        span.w1 LGM lOl
-                    tr
-                      td
-                        span.w1 Santababy
-                      td
-                        span
-                          | 2
-                          em.c2.p1 VS
-                          | 1
-                      td
-                        span.w1 天堂
-              // 模块开始
-              // 模块开始
-              .re_vsTableBox
-                table(width='100%', border='0', cellspacing='0', cellpadding='0')
-                  thead
-                    tr
-                      th(colspan='3')
-                        span.c1 A组
-                      th
-                        span 胜
-                      th
-                        span 平
-                      th
-                        span 负
-                      th
-                        span 大场
-                      th
-                        span 小场
-                      th
-                        span 积分
-                  tbody
-                    tr
-                      td
-                        span 1.
-                      td
-                        span
-                          img(src='_temp/09.jpg')
-                      td
-                        span.tl.w1 名字名名字名字名字名名字名字名字字名字名字字名字
-                      td
-                        span 3
-                      td
-                        span 0
-                      td
-                        span 0
-                      td
-                        span 3-0
-                      td
-                        span 13-0
-                      td
-                        span 9
-                    tr
-                      td
-                        span 1.
-                      td
-                        span
-                          img(src='_temp/09.jpg')
-                      td
-                        span.tl 名字名字名字
-                      td
-                        span 3
-                      td
-                        span 999
-                      td
-                        span 0
-                      td
-                        span 3-990
-                      td
-                        span 3-0
-                      td
-                        span 9
-                    tr
-                      td
-                        span 22.
-                      td
-                        span
-                          img(src='_temp/09.jpg')
-                      td
-                        span.tl 名字名字名字
-                      td
-                        span 3
-                      td
-                        span 0
-                      td
-                        span 0
-                      td
-                        span 3-0
-                      td
-                        span 3-0
-                      td
-                        span 9
-                    tr
-                      td
-                        span 22.
-                      td
-                        span
-                          img(src='_temp/09.jpg')
-                      td
-                        span.tl 名字名字名字
-                      td
-                        span 3
-                      td
-                        span 0
-                      td
-                        span 0
-                      td
-                        span 3-0
-                      td
-                        span 3-0
-                      td
-                        span 9
-                table(width='100%', border='0', cellspacing='0', cellpadding='0')
-                  thead
-                    tr
-                      th(colspan='4')
-                        span.tl 详细对阵
-                  tbody
-                    tr
-                      td(rowspan='2')
-                        span.w2 第一轮
-                      td
-                        span.w1 xxx Team
-                      td
-                        span
-                          | 3
-                          em.c2.p1 VS
-                          | 0
-                      td
-                        span.w1 LGM lOl
-                    tr
-                      td
-                        span.w1 Santababy
-                      td
-                        span
-                          | 2
-                          em.c2.p1 VS
-                          | 1
-                      td
-                        span.w1 天堂
-                    tr
-                      td(rowspan='2')
-                        span.w2 第一轮
-                      td
-                        span.w1 xxx Team
-                      td
-                        span
-                          | 3
-                          em.c2.p1 VS
-                          | 0
-                      td
-                        span.w1 LGM lOl
-                    tr
-                      td
-                        span.w1 Santababy
-                      td
-                        span
-                          | 2
-                          em.c2.p1 VS
-                          | 1
-                      td
-                        span.w1 天堂
-                    tr
-                      td(rowspan='2')
-                        span.w2 第一轮
-                      td
-                        span.w1 xxx Team
-                      td
-                        span
-                          | 999
-                          em.c2.p1 VS
-                          | 999
-                      td
-                        span.w1 LGM lOl
-                    tr
-                      td
-                        span.w1 Santababy
-                      td
-                        span
-                          | 2
-                          em.c2.p1 VS
-                          | 1
-                      td
-                        span.w1 天堂
-    .re_footer
-      .footer
-        img.logo(src='images/foot_01.png', width='160', height='77', alt='')
-        p.t1
-          | Room XXX No.XXX,Lingshi Road, Zhabei District,Shanghai,P.R.China.
-          br
-          |         	Tel:86+21-6xxx-2xxx Fax:86+21-xxx5-2xxx
-          br
-          a(href='mailto:Service@ees.com') Email: Service@EES.com
-        p.t2
-          | Copyright © 2016
-          span www.xxxx.cn.
-          | Allright reserved.
-          br
-          a 沪ICP备1502xx9-1号
-        .link
-          a.wx(href='#')
-          a.wb(href='#')
-          a.tx(href='#')
-          a.qq(href='#')
-    // 通用底部模块结束
-    script(src='js/jquery-1.7.2.min.js')
-    script(src='js/swiper.min.js')
-    script(src='js/page.js')
+                | TI5之后Valve宣布开启DOTA2四大联赛模式，即每年的春夏秋冬会在全球举办DOTA2四大联赛。15年11月法兰克福秋季赛受到业内一致好评。虽然上海冬季赛国内队伍全军覆没但调整之后的西恩DOTA将会在新赛季中再现辉煌！
+                | 此比赛为东南亚特级锦标赛上海赛区的公开赛阶段，各个报名队伍将争夺前往马尼拉的两个名额。
+              .list
+                ul.cf
+                  li
+                    span 赛事名称：
+                    em 2016马尼拉特锦赛中国赛区预选赛
+                  li
+                    span  总奖金：
+                    em 马尼拉特锦赛名额 两名
+                  li
+                    span 比赛项目：
+                    em DOTA2
+                  li
+                    span 报名方式：
+                    em 线上报名
+                  li
+                    span 比赛版本：
+                    em 最新版本
+                  li
+                    span 比赛地点：
+                    em 线上赛
+        // 数据结束
+        // 规则开始
+        .ruleBox
+          h3 赛制说明
+          .show
+            | 本比赛公开报名，根据实际报名人数随机分为2组，分别进行BO1的单淘线上赛。
+            br
+            br
+            |                     比赛报名时间为2016年4月26日至28日中午12点截止。
+            br
+            |                     第一组比赛时间为2016年4月29日~30日两天将决出首个名额。
+            br
+            |                     第二组比赛时间为2016年5月1日~2日两天将决出第二个名额。
+        // 规则结束
+        // 按钮开始
+        .btnBox#signBool
+          a.t1(style="display:none") 暂时不可报名
+          a.t4(style="display:none") 以战队身份报名
+          //
+            <a href="javascript:;" class="t1">已结束报名</a>
+            <a href="javascript:;" class="t2">已提交报名</a>
+            <a href="javascript:;" class="t3">以个人身份报名(200/245)</a>
+            <a href="javascript:;" class="t4">以战队身份报名(200/245)</a>
+        // 按钮结束
+      // 介绍结束
+      // 名单开始
+      // 名单结束
+      // 对阵开始
+      .mainShow.re_vsBox(style='display:none;')
+        .bg
+          .title.cf
+            img(src='_temp/07.png', width='48', height='48', alt='')
+            p
+              strong 测试文字测试文字字测试文字
+              span 测试文字测试文字测试文字测试文字测试文字
+          .search.cf
+            input.txt(type='text', placeholder='选手ID')
+            a.btn(href='#') 定位
+          .vsMain.cf
+            // 模块开始
+            .re_vsTableBox
+              table(width='100%', border='0', cellspacing='0', cellpadding='0')
+                thead
+                  tr
+                    th(colspan='3')
+                      span.c1 A组
+                    th
+                      span 胜
+                    th
+                      span 平
+                    th
+                      span 负
+                    th
+                      span 大场
+                    th
+                      span 小场
+                    th
+                      span 积分
+                tbody
+                  tr.opt
+                    td
+                      span 1.
+                    td
+                      span
+                        img(src='_temp/09.jpg')
+                    td
+                      span.tl.w1 名字名名字名字名字名名字名字名字字名字名字字名字
+                    td
+                      span 3
+                    td
+                      span 0
+                    td
+                      span 0
+                    td
+                      span 3-0
+                    td
+                      span 13-0
+                    td
+                      span 9
+                  tr.opt
+                    td
+                      span 1.
+                    td
+                      span
+                        img(src='_temp/09.jpg')
+                    td
+                      span.tl 名字名字名字
+                    td
+                      span 3
+                    td
+                      span 999
+                    td
+                      span 0
+                    td
+                      span 3-990
+                    td
+                      span 3-0
+                    td
+                      span 9
+                  tr
+                    td
+                      span 22.
+                    td
+                      span
+                        img(src='_temp/09.jpg')
+                    td
+                      span.tl 名字名字名字
+                    td
+                      span 3
+                    td
+                      span 0
+                    td
+                      span 0
+                    td
+                      span 3-0
+                    td
+                      span 3-0
+                    td
+                      span 9
+                  tr
+                    td
+                      span 22.
+                    td
+                      span
+                        img(src='_temp/09.jpg')
+                    td
+                      span.tl 名字名字名字
+                    td
+                      span 3
+                    td
+                      span 0
+                    td
+                      span 0
+                    td
+                      span 3-0
+                    td
+                      span 3-0
+                    td
+                      span 9
+              table(width='100%', border='0', cellspacing='0', cellpadding='0')
+                thead
+                  tr
+                    th(colspan='4')
+                      span.tl 详细对阵
+                tbody
+                  tr
+                    td(rowspan='2')
+                      span.w2 第一轮
+                    td
+                      span.w1 xxx Team
+                    td
+                      span
+                        | 3
+                        em.c2.p1 VS
+                        | 0
+                    td
+                      span.w1 LGM lOl
+                  tr
+                    td
+                      span.w1 Santababy
+                    td
+                      span
+                        | 2
+                        em.c2.p1 VS
+                        | 1
+                    td
+                      span.w1 天堂
+                  tr
+                    td(rowspan='2')
+                      span.w2 第一轮
+                    td
+                      span.w1 xxx Team
+                    td
+                      span
+                        | 3
+                        em.c2.p1 VS
+                        | 0
+                    td
+                      span.w1 LGM lOl
+                  tr
+                    td
+                      span.w1 Santababy
+                    td
+                      span
+                        | 2
+                        em.c2.p1 VS
+                        | 1
+                    td
+                      span.w1 天堂
+                  tr
+                    td(rowspan='2')
+                      span.w2 第一轮
+                    td
+                      span.w1 xxx Team
+                    td
+                      span
+                        | 999
+                        em.c2.p1 VS
+                        | 999
+                    td
+                      span.w1 LGM lOl
+                  tr
+                    td
+                      span.w1 Santababy
+                    td
+                      span
+                        | 2
+                        em.c2.p1 VS
+                        | 1
+                    td
+                      span.w1 天堂
+            // 模块开始
+            // 模块开始
+            .re_vsTableBox
+              table(width='100%', border='0', cellspacing='0', cellpadding='0')
+                thead
+                  tr
+                    th(colspan='3')
+                      span.c1 A组
+                    th
+                      span 胜
+                    th
+                      span 平
+                    th
+                      span 负
+                    th
+                      span 大场
+                    th
+                      span 小场
+                    th
+                      span 积分
+                tbody
+                  tr
+                    td
+                      span 1.
+                    td
+                      span
+                        img(src='_temp/09.jpg')
+                    td
+                      span.tl.w1 名字名名字名字名字名名字名字名字字名字名字字名字
+                    td
+                      span 3
+                    td
+                      span 0
+                    td
+                      span 0
+                    td
+                      span 3-0
+                    td
+                      span 13-0
+                    td
+                      span 9
+                  tr
+                    td
+                      span 1.
+                    td
+                      span
+                        img(src='_temp/09.jpg')
+                    td
+                      span.tl 名字名字名字
+                    td
+                      span 3
+                    td
+                      span 999
+                    td
+                      span 0
+                    td
+                      span 3-990
+                    td
+                      span 3-0
+                    td
+                      span 9
+                  tr
+                    td
+                      span 22.
+                    td
+                      span
+                        img(src='_temp/09.jpg')
+                    td
+                      span.tl 名字名字名字
+                    td
+                      span 3
+                    td
+                      span 0
+                    td
+                      span 0
+                    td
+                      span 3-0
+                    td
+                      span 3-0
+                    td
+                      span 9
+                  tr
+                    td
+                      span 22.
+                    td
+                      span
+                        img(src='_temp/09.jpg')
+                    td
+                      span.tl 名字名字名字
+                    td
+                      span 3
+                    td
+                      span 0
+                    td
+                      span 0
+                    td
+                      span 3-0
+                    td
+                      span 3-0
+                    td
+                      span 9
+              table(width='100%', border='0', cellspacing='0', cellpadding='0')
+                thead
+                  tr
+                    th(colspan='4')
+                      span.tl 详细对阵
+                tbody
+                  tr
+                    td(rowspan='2')
+                      span.w2 第一轮
+                    td
+                      span.w1 xxx Team
+                    td
+                      span
+                        | 3
+                        em.c2.p1 VS
+                        | 0
+                    td
+                      span.w1 LGM lOl
+                  tr
+                    td
+                      span.w1 Santababy
+                    td
+                      span
+                        | 2
+                        em.c2.p1 VS
+                        | 1
+                    td
+                      span.w1 天堂
+                  tr
+                    td(rowspan='2')
+                      span.w2 第一轮
+                    td
+                      span.w1 xxx Team
+                    td
+                      span
+                        | 3
+                        em.c2.p1 VS
+                        | 0
+                    td
+                      span.w1 LGM lOl
+                  tr
+                    td
+                      span.w1 Santababy
+                    td
+                      span
+                        | 2
+                        em.c2.p1 VS
+                        | 1
+                    td
+                      span.w1 天堂
+                  tr
+                    td(rowspan='2')
+                      span.w2 第一轮
+                    td
+                      span.w1 xxx Team
+                    td
+                      span
+                        | 999
+                        em.c2.p1 VS
+                        | 999
+                    td
+                      span.w1 LGM lOl
+                  tr
+                    td
+                      span.w1 Santababy
+                    td
+                      span
+                        | 2
+                        em.c2.p1 VS
+                        | 1
+                    td
+                      span.w1 天堂
+            // 模块开始
+            // 模块开始
+            .re_vsTableBox
+              table(width='100%', border='0', cellspacing='0', cellpadding='0')
+                thead
+                  tr
+                    th(colspan='3')
+                      span.c1 A组
+                    th
+                      span 胜
+                    th
+                      span 平
+                    th
+                      span 负
+                    th
+                      span 大场
+                    th
+                      span 小场
+                    th
+                      span 积分
+                tbody
+                  tr
+                    td
+                      span 1.
+                    td
+                      span
+                        img(src='_temp/09.jpg')
+                    td
+                      span.tl.w1 名字名名字名字名字名名字名字名字字名字名字字名字
+                    td
+                      span 3
+                    td
+                      span 0
+                    td
+                      span 0
+                    td
+                      span 3-0
+                    td
+                      span 13-0
+                    td
+                      span 9
+                  tr
+                    td
+                      span 1.
+                    td
+                      span
+                        img(src='_temp/09.jpg')
+                    td
+                      span.tl 名字名字名字
+                    td
+                      span 3
+                    td
+                      span 999
+                    td
+                      span 0
+                    td
+                      span 3-990
+                    td
+                      span 3-0
+                    td
+                      span 9
+                  tr
+                    td
+                      span 22.
+                    td
+                      span
+                        img(src='_temp/09.jpg')
+                    td
+                      span.tl 名字名字名字
+                    td
+                      span 3
+                    td
+                      span 0
+                    td
+                      span 0
+                    td
+                      span 3-0
+                    td
+                      span 3-0
+                    td
+                      span 9
+                  tr
+                    td
+                      span 22.
+                    td
+                      span
+                        img(src='_temp/09.jpg')
+                    td
+                      span.tl 名字名字名字
+                    td
+                      span 3
+                    td
+                      span 0
+                    td
+                      span 0
+                    td
+                      span 3-0
+                    td
+                      span 3-0
+                    td
+                      span 9
+              table(width='100%', border='0', cellspacing='0', cellpadding='0')
+                thead
+                  tr
+                    th(colspan='4')
+                      span.tl 详细对阵
+                tbody
+                  tr
+                    td(rowspan='2')
+                      span.w2 第一轮
+                    td
+                      span.w1 xxx Team
+                    td
+                      span
+                        | 3
+                        em.c2.p1 VS
+                        | 0
+                    td
+                      span.w1 LGM lOl
+                  tr
+                    td
+                      span.w1 Santababy
+                    td
+                      span
+                        | 2
+                        em.c2.p1 VS
+                        | 1
+                    td
+                      span.w1 天堂
+                  tr
+                    td(rowspan='2')
+                      span.w2 第一轮
+                    td
+                      span.w1 xxx Team
+                    td
+                      span
+                        | 3
+                        em.c2.p1 VS
+                        | 0
+                    td
+                      span.w1 LGM lOl
+                  tr
+                    td
+                      span.w1 Santababy
+                    td
+                      span
+                        | 2
+                        em.c2.p1 VS
+                        | 1
+                    td
+                      span.w1 天堂
+                  tr
+                    td(rowspan='2')
+                      span.w2 第一轮
+                    td
+                      span.w1 xxx Team
+                    td
+                      span
+                        | 999
+                        em.c2.p1 VS
+                        | 999
+                    td
+                      span.w1 LGM lOl
+                  tr
+                    td
+                      span.w1 Santababy
+                    td
+                      span
+                        | 2
+                        em.c2.p1 VS
+                        | 1
+                    td
+                      span.w1 天堂
+            // 模块开始
+            // 模块开始
+            .re_vsTableBox
+              table(width='100%', border='0', cellspacing='0', cellpadding='0')
+                thead
+                  tr
+                    th(colspan='3')
+                      span.c1 A组
+                    th
+                      span 胜
+                    th
+                      span 平
+                    th
+                      span 负
+                    th
+                      span 大场
+                    th
+                      span 小场
+                    th
+                      span 积分
+                tbody
+                  tr
+                    td
+                      span 1.
+                    td
+                      span
+                        img(src='_temp/09.jpg')
+                    td
+                      span.tl.w1 名字名名字名字名字名名字名字名字字名字名字字名字
+                    td
+                      span 3
+                    td
+                      span 0
+                    td
+                      span 0
+                    td
+                      span 3-0
+                    td
+                      span 13-0
+                    td
+                      span 9
+                  tr
+                    td
+                      span 1.
+                    td
+                      span
+                        img(src='_temp/09.jpg')
+                    td
+                      span.tl 名字名字名字
+                    td
+                      span 3
+                    td
+                      span 999
+                    td
+                      span 0
+                    td
+                      span 3-990
+                    td
+                      span 3-0
+                    td
+                      span 9
+                  tr
+                    td
+                      span 22.
+                    td
+                      span
+                        img(src='_temp/09.jpg')
+                    td
+                      span.tl 名字名字名字
+                    td
+                      span 3
+                    td
+                      span 0
+                    td
+                      span 0
+                    td
+                      span 3-0
+                    td
+                      span 3-0
+                    td
+                      span 9
+                  tr
+                    td
+                      span 22.
+                    td
+                      span
+                        img(src='_temp/09.jpg')
+                    td
+                      span.tl 名字名字名字
+                    td
+                      span 3
+                    td
+                      span 0
+                    td
+                      span 0
+                    td
+                      span 3-0
+                    td
+                      span 3-0
+                    td
+                      span 9
+              table(width='100%', border='0', cellspacing='0', cellpadding='0')
+                thead
+                  tr
+                    th(colspan='4')
+                      span.tl 详细对阵
+                tbody
+                  tr
+                    td(rowspan='2')
+                      span.w2 第一轮
+                    td
+                      span.w1 xxx Team
+                    td
+                      span
+                        | 3
+                        em.c2.p1 VS
+                        | 0
+                    td
+                      span.w1 LGM lOl
+                  tr
+                    td
+                      span.w1 Santababy
+                    td
+                      span
+                        | 2
+                        em.c2.p1 VS
+                        | 1
+                    td
+                      span.w1 天堂
+                  tr
+                    td(rowspan='2')
+                      span.w2 第一轮
+                    td
+                      span.w1 xxx Team
+                    td
+                      span
+                        | 3
+                        em.c2.p1 VS
+                        | 0
+                    td
+                      span.w1 LGM lOl
+                  tr
+                    td
+                      span.w1 Santababy
+                    td
+                      span
+                        | 2
+                        em.c2.p1 VS
+                        | 1
+                    td
+                      span.w1 天堂
+                  tr
+                    td(rowspan='2')
+                      span.w2 第一轮
+                    td
+                      span.w1 xxx Team
+                    td
+                      span
+                        | 999
+                        em.c2.p1 VS
+                        | 999
+                    td
+                      span.w1 LGM lOl
+                  tr
+                    td
+                      span.w1 Santababy
+                    td
+                      span
+                        | 2
+                        em.c2.p1 VS
+                        | 1
+                    td
+                      span.w1 天堂
+
 
 

@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 router.post('/',function(req,res){
     var date = new Date();
     var p = {
-        uid:uuid.v4(),
+        uid:req.body.uid,
         battle_name:req.body.battle_name,
         steam_id:req.body.battle_id,
         mobile:req.body.mobile,
@@ -19,10 +19,13 @@ router.post('/',function(req,res){
         enable:false,
         add_time:date
     };
-    console.log(p);
     req.models.enroll.create(p, function(err, results) {
-        if(!err) console.log(err);
-        console.log(results);
+        if(!err){
+            console.log(err);
+            res.json(400);
+        }else{
+            res.json(200);
+        }
     });
 });
 module.exports = router;

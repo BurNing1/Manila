@@ -14,6 +14,9 @@ $(function(){
 
 		})
 	});
+	$("#phone").blur(function(){
+		alert(111);
+	});
 	//$.get("http://localhost:3000/signState",function(data){
 	//	console.log(data);
 	//});

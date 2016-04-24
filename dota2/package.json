@@ -2,6 +2,8 @@
   "name": "dota2",
   "version": "0.0.0",
   "private": true,
+  "author":"burning,tommy",
+  "license": "MIT 2.0",
   "scripts": {
     "start": "node ./bin/www"
   },
@@ -13,5 +15,11 @@
     "jade": "~1.11.0",
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0"
+  },
+  "config": {
+    "sms_account":"cf_tommy23",
+    "sms_password":"6a7f8341e82894a6d9e75a2b594539ff",
+    "sms_url":"http://106.ihuyi.cn/webservice/sms.php?method=Submit",
+    "sms_template":"您的验证码是：【变量】。请不要把验证码泄露给其他人。如非本人操作，可不用理会！"
   }
 }

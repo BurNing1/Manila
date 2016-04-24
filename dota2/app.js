@@ -66,17 +66,9 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-//orm.connect("mysql://root:@localhost:3306/m_manila", function (err, db) {
-//  var Person = db.define("match", {
-//    id      :{type:"bigint"},
-//    status  :{type:"varchar"},
-//    vs_url  :{type:"varchar"},
-//    name    :{type:"varchar"},
-//    vs_id   :{type:"bigint"}
-//  });
-//  Person.find({}, function (err, people) {
-//    console.log(people)
-//  })
+//orm.connect(config.mysql_address, function (err, db) {
+//  if(!err) console.log(db);
+//  global.db = db;
 //});
 
 module.exports = app;

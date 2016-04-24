@@ -40,41 +40,41 @@ html
       ul
         li
           .code
-            input#phoneNum(type='text', placeholder='手机号码')
+            input#phoneNum.formInput(type='text', placeholder='手机号码')
             a#sendVerificationCode(href='#') 发送验证码
             a.lock(href='#', style='display:none;') 54秒后重新发送
-          p.err
+          p.err#phoneCheck(style="display:none")
             i
             span 错误的手机号码
         li
           .txt
-            input#code(type='text', placeholder='短信验证码')
-          p.err
-            i
-            span 错误的验证码
+            input#code.formInput(type='text', placeholder='短信验证码')
+          //p.err
+          //  i
+          //  span 错误的验证码
         li
           .txt
-            input#password(type='text', placeholder='6~12位的数字或字母组成的登录密码')
-          p.err
+            input#password.formInput(type='password', placeholder='6~12位的数字或字母组成的登录密码')
+          p.err#passCheck(style="display:none")
             i
             span 不符合规则的密码
         li
           .txt
-            input(type='text', placeholder='重复密码')
-          p.err
+            input#REpassword.formInput(type='password', placeholder='重复密码')
+          p.err#RECheck(style="display:none")
             i
             span 重复密码错误
         li.xy
           .box
-            input(type='checkbox')
+            input#agree(type='checkbox')
             span 我同意
             a(href='#') 协议协议协议
             span 和
             a(href='#') 协议协议协议
             span 相关条款。
-          p.err
+          p.err#warning(style="display:none")
             i
-            span 提示语待定
+            span
         li
           a.btn#register(href='#') 注册
     // 浮层 注册结束

@@ -5,10 +5,21 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 var fs = require('fs');
-var url = "http://test.dianjingquan.cn:8080/v1/file/upload";
+var url = global.config.test_file_url;
+
 router.get('/', function(req, res, next) {
-  res.render('management');
+  //enroll count
+  //req.models.enroll.count(function (e,result) {
+  //  if(e != null) console.log(e);
+  //  console.log(result);
+  //});
+  req.models.enroll.find(function (e,result) {
+    if(e != null) console.log(e);
+    res.render('management',{enrolls:result});
+  });
+
 });
+
 router.post('/signState',function(req,res){
   var state = req.body.state;
   req.models.match.find({ id: 1 }, function (err, match) {
@@ -27,9 +38,11 @@ router.post('/signState',function(req,res){
     }
   })
 });
+
 router.get('/signState',function(req,res){
   req.models.match.find({id:1},function(err,result){
     res.json(result[0].status);
   });
 });
+
 module.exports = router;

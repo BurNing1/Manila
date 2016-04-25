@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cache = require( "node-cache" );
+var session = require('express-session');
 
 global.config = require('./package.json').config;
 global.cache = new cache();
@@ -17,6 +18,8 @@ var sign_up = require('./routes/sign_up');
 var users = require('./routes/users');
 
 var app = express();
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -58,6 +61,20 @@ app.use(orm.express(config.mysql_address, {
     next();
   }
 }));
+app.use(session({
+  secret:'manila',
+  key:'manila',
+  cookie:{maxAge:1000*60*60*24},
+  resave: false,
+  saveUninitialized: false
+}));
+//app.all('*',function(req, res, next) {
+//  if(req.session.user){
+//    next();
+//  } else {
+//    res.redirect('/error');
+//  }
+//});
 app.use('/', routes);
 app.use('/enroll', enroll);
 app.use('/management', management);
@@ -94,5 +111,6 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
 
 module.exports = app;

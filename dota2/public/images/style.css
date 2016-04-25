@@ -251,6 +251,7 @@ a:hover{text-decoration:none;cursor: pointer}
 .competitionPage .interBox .scheduleBox .title em{ color:#ff5454; font-size:18px; display:inline-block; vertical-align: top; margin-top:4px;}
 .competitionPage .interBox .scheduleBox .title span{ font-size:23px; color:#fff; line-height:32px; height:32px; overflow:hidden; display:block;}
 .competitionPage .interBox .scheduleBox .show{ width:800px; margin:0 auto; position:relative;}
+.competitionPage .interBox .scheduleBox .show ul{ width:800px;}
 .competitionPage .interBox .scheduleBox .show li{ display:inline-block; vertical-align: top; width:100px; margin:0 28px; text-align:center; line-height:20px;}
 .competitionPage .interBox .scheduleBox .show li.now{ color:#fff;}
 .competitionPage .interBox .scheduleBox .show i{ display:block; margin:5px auto 0 auto; width:18px; height:18px;}

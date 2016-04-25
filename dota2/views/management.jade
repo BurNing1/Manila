@@ -8,7 +8,6 @@ html
     script(src='/js/bootstrap.min.js')
     script(src='/js/jquery.form.js')
     script(src="/js/index.js",type="text/javascript")
-    script(src="/js/common.js",type="text/javascript")
   body
     div.header
     div.container
@@ -24,7 +23,9 @@ html
             button.btn.btn-sm.btn-success.pull-right.state(data-state="stateStart") 开始报名
           .col-lg-12.col-box
             span 上传图片
-            button.btn.btn-sm.btn-primary.pull-right 上传
+            form#fileForm(enctype='multipart/form-data')
+              input(type='file')
+              input(type='submit' value="上传")
           .col-lg-12.col-box
             span 赛事报名名单审核
           .col-lg-12.col-table-box
@@ -32,55 +33,20 @@ html
               thead
                 tr
                   th(width="20%") 战队名称
-                  th(width="20%") 联系人战网ID
+                  th(width="20%") Steam ID
                   th(width="15%") 手机号
                   th(width="15%") QQ
                   th(width="15%") 微信
-                  th(width="15%")
+                  th(width="15%") 审核
               tbody
-                tr
-                  td 32
-                  td 32
-                  td 32
-                  td 32
-                  td 32
-                  td
-                    button.btn.btn-xs.btn-success 通过
-                    button.btn.btn-xs.btn-danger 未通过
-                tr
-                  td 32
-                  td 32
-                  td 32
-                  td 32
-                  td 32
-                  td
-                    button.btn.btn-xs.btn-success 通过
-                    button.btn.btn-xs.btn-danger 未通过
-                tr
-                  td 32
-                  td 32
-                  td 32
-                  td 32
-                  td 32
-                  td
-                    button.btn.btn-xs.btn-success 通过
-                    button.btn.btn-xs.btn-danger 未通过
-                tr
-                  td 32
-                  td 32
-                  td 32
-                  td 32
-                  td 32
-                  td
-                    button.btn.btn-xs.btn-success 通过
-                    button.btn.btn-xs.btn-danger 未通过
-                tr
-                  td 32
-                  td 32
-                  td 32
-                  td 32
-                  td 32
-                  td
-                    button.btn.btn-xs.btn-success 通过
-                    button.btn.btn-xs.btn-danger 未通过
+                each item in enrolls
+                  tr
+                    td=item.battle_name
+                    td=item.steam_id
+                    td=item.mobile
+                    td=item.qq
+                    td=item.wechat
+                    td
+                      button.btn.btn-xs.btn-success 通过
+                      button.btn.btn-xs.btn-danger 未通过
 

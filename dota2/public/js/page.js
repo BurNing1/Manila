@@ -1,63 +1,52 @@
 //首页
-var loginState = false;
-window.onload = onloadFunction;
 $(function(){
 	$.get('/management/signState',function(data){
 		var progress = $("#progress");
+		var tab = $('.competitionMain .pageTab a:eq(1)');
 		switch (data){
 			case null:
 				progress.css("width","0");
 				$("li[id*='s1']").addClass("now");
 				$("#signBool .t1").css("display","block");
+				tab.css("display","none");
 				break;
 			case "signStart":
 				progress.css("width","25%");
 				$("li[id*='s2']").addClass("now");
 				$("i[id*='i1']").addClass("t1");
 				$("#signBool .t4").css("display","block");
+				tab.css("display","none");
 				break;
 			case "signStop":
 				progress.css("width","50%");
 				$("li[id*='s3']").addClass("now");
 				$("i[id*='i2']").addClass("t1");
 				$("#signBool .t1").css("display","block");
+				tab.css("display","block");
 				break;
 			case "competeStart":
 				progress.css("width","75%");
 				$("li[id*='s4']").addClass("now");
 				$("i[id*='i3']").addClass("t1");
 				$("#signBool .t1").css("display","block");
+				tab.css("display","block");
 				break;
 			case "competeStop":
 				progress.css("width","100%");
 				$("li[id*='s5']").addClass("now");
 				$("i[id*='i4']").addClass("t1");
 				$("#signBool .t1").css("display","block");
+				tab.css("display","block");
 				break;
 			case "signReset":
 				progress.css("width","0");
 				$("li[id*='s1']").addClass("now");
 				$("#signBool .t1").css("display","block");
+				tab.css("display","none");
 				break;
 		}
 	});
-	$.get('/getSession',function(data){
-		for(var i in data) {
-			if (data[i].id == document.cookie) {
-				loginState = true;
-				var userMess = data[i];
-				$.get("/users/form/"+userMess.id,function(bool){
-					$("#logoutState").css("display","none");
-					$("#loginState").css("display","block").children("a:eq(0)").text(userMess.mobile);
-					if(bool){
-						$("#loginState a:eq(2)").text("已报名");
-					}else{
-						$("#loginState a:eq(2)").text("未报名");
-					}
-				});
-			}
-		}
-	});
+	checkSession();
 	var testForm = {
 		phone:false,
 		pass:false,
@@ -67,6 +56,7 @@ $(function(){
 	$("#sendVerificationCode").click(function(){
 		$(this).css("display","none");
 		$("#showTime").css("display","inline-block");
+		sendCD("#showTime");
 		var num = $("#phoneNum").val();
 		$.get("/users/code/"+num)
 	});
@@ -142,27 +132,18 @@ $(function(){
 	$("#login").unbind("click").bind("click",function(){
 		var phone = $("#logPhone").val();
 		var pwd = $("#logPwd").val();
-		$.get('/getSession',function(data) {
-			var bool = true,bool1 = false;
-			for(var i in data){
-				if(data[i].mobile == phone && data[i].pwd == pwd){
-					delCookie();
-					var hours = 1;
-					bool = false;
-					var exp = new Date();
-					exp.setTime(exp.getTime() + hours*60*60*1000);
-					document.cookie =data[i].id+";expires=" + exp.toGMTString();
-					window.location.reload();
-				}else if(data[i].mobile == phone){
-					bool1 = true;
-				}
-			}
-			if(bool1){
+		$.get('/login/'+phone+"/"+pwd,function(data) {
+			if (data.id != "") {
+				delCookie();
+				var hours = 1;
+				var exp = new Date();
+				exp.setTime(exp.getTime() + hours * 60 * 60 * 1000);
+				document.cookie = data.link + ";expires=" + exp.toGMTString();
+				window.location.reload();
+			} else if (data.mobile) {
 				alert("手机号或密码错误");
-				return;
-			}
-			if(bool){
-				if(confirm("您还未注册,是否注册?")){
+			} else {
+				if (confirm("您还未注册,是否注册?")) {
 					$('.re_fPageBg').show();
 					$('.f_register').show();
 					initialization();
@@ -172,8 +153,13 @@ $(function(){
 	});
 	$("#logout").click(function(){
 		if(confirm("确认注销?")){
-			delCookie();
-			window.location.reload();
+			var cookie = document.cookie;
+			$.post('/logout/'+cookie,function(data){
+				if(data.bool){
+					delCookie();
+					window.location.reload();
+				}
+			});
 		}
 	});
 	//$.get("http://localhost:3000/signState",function(data){
@@ -186,7 +172,7 @@ $(function(){
 	
 	var indexGameList = new Swiper('.indexGameList .swiper-container', {
         paginationClickable: true,
-		nextButton: '.indexGameList .btnR',
+				nextButton: '.indexGameList .btnR',
         prevButton: '.indexGameList .btnL',
 		onInit: function(swiper){
 			var step='<p class="step"><span></span></p>';
@@ -230,6 +216,7 @@ $(function(){
 		$(this).hide();
 	});
 	function initialization(){
+		clearCD();
 		$("#logPhone").val("");
 		$("#logPwd").val("");
 		$(".formInput").val("");
@@ -324,22 +311,28 @@ function delCookie(){
 	var Co = document.cookie;
 	document.cookie =Co+";expires=" + del.toGMTString();
 }
-function onloadFunction(){
-	$("#signBool>.t4").click(function(){
-		if(!loginState){
-			if(confirm("还未登录,是否登录?")){
-				$('.re_fPageBg').show();
-				$('.f_login').show();
-				initialization();
-			}
+function checkSession(){
+	var cookie = document.cookie;
+	$.get('/login/'+cookie,function(data) {
+		if (data.bool) {
+			$("#signBool").css("display","block");
+			checkMess(data.data);
 		}else{
-			window.location.href="/enroll";
+			$("#signBool").css("display","none");
 		}
 	});
 }
-
-
-
+function checkMess(data){
+	$.get("/users/form/"+data.id,function(bool){
+		$("#logoutState").css("display","none");
+		$("#loginState").css("display","block").children("a:eq(0)").text(data.mobile);
+		if(bool){
+			$("#loginState a:eq(2)").text("已报名");
+		}else{
+			$("#loginState a:eq(2)").text("未报名");
+		}
+	});
+}
 
 
 

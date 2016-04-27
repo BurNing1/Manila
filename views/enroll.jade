@@ -1,0 +1,86 @@
+extends layout
+
+block content
+    // 通用头部导航结束
+    // 电竞报名开始
+    .re_page.joinPage
+        // 面包屑开始
+        .re_nav.cf
+            i.ico_home
+            a(href='/') 首页
+            span >2016 马尼拉特锦赛 中国赛区预选赛
+        // 面包屑结束
+        // banner开始
+        .banner
+            img(src='_temp/06.jpg', width='100%', alt='')
+        // banner结束
+        // 报名主体开始
+        .joinMain
+            .intro
+                dl
+                    dt 2016 马尼拉Major 中国赛区预选赛
+                    dd
+                        | 在TI5落下帷幕后，Valve宣布开启DOTA2的四大联赛模式，在每年的春季、夏季、秋、秋季和冬季分别举行4次全球规模的比赛。在法兰克福Major以及上海Major过后，在东南亚举办的马尼拉Major已经蓄势待发。在经过了短暂的调整之后，国内选手势必会卷土重来，在世界的舞台中再次绽放！
+                        | 而现在，机会已然来临，由NEOTV承办的马尼拉Major中国赛区预选赛即将开始。在经历为期四天的比赛之后，所有公开报名的队伍将决出两支精英战队，入围本次马尼拉Major中国赛区决赛。
+                // <div class="notice">
+                // <tt></tt><span>注：本次比赛将采用</span><strong>裁判模式</strong><i></i><span>，参赛者无需管理比赛成绩。</span>
+                // <p class="tips">比赛将由举办方指定的<strong>裁判</strong>进行比赛监督，选手无需管理提交比赛结果。</p>
+                // </div>
+                //
+                  <div class="notice">
+                  <tt></tt><span>注：本次比赛将采用</span><em>自判模式</em><i></i><span>，比赛结束后参赛者需登录至<em>我的赛事</em>中自行提交比赛成绩。</span>3
+                  <p class="tips">选手需要登录赛事系统进入<em>我的赛事</em>页面，找到已报名的对应比赛<em>点击提交成绩</em>自行录入提交本场赛事的比分。当认为对方提交的成绩有异议时可申请<em>仲裁</em>要求裁判介入确认正确的比分。</p>
+                  </div>
+            .info
+                .t
+                    h3 报名信息
+                    i
+                ul
+                    li
+                        label 战队名称
+                        input.txt#teamName(type='text', placeholder='战队名称')
+                        label.rlabel 战队名称
+                        //em.pass
+                .t
+                    h3 详细信息
+                    i
+                    span （身份证号和姓名都是必填项，将被用于参赛资格的审查，请在填写过程中确保信息真实有效。)
+                ul
+                    li
+                        label 紧急联系手机号
+                        input.txt#phoneNum(type='text', placeholder='请输入手机号')
+                        label.rlabel 请输入手机号
+                        // <em class="err"></em>
+                    li
+                        label 队长
+                        input.txt#player1(type='text', placeholder='姓名+身份证号，输入时请用“，”分割')
+                        label.rlabel 姓名+身份证号，输入时请用“，”分割
+                    li
+                        label 队员1
+                        input.txt#player2(type='text', placeholder='姓名+身份证号，输入时请用“，”分割')
+                        label.rlabel 姓名+身份证号，输入时请用“，”分割
+                    li
+                        label 队员2
+                        input.txt#player3(type='text', placeholder='姓名+身份证号，输入时请用“，”分割')
+                        label.rlabel 姓名+身份证号，输入时请用“，”分割
+                    li
+                        label 队员3
+                        input.txt#player4(type='text', placeholder='姓名+身份证号，输入时请用“，”分割')
+                        label.rlabel 姓名+身份证号，输入时请用“，”分割
+                    li
+                        label 队员4
+                        input.txt#player5(type='text', placeholder='姓名+身份证号，输入时请用“，”分割')
+                        label.rlabel 姓名+身份证号，输入时请用“，”分割
+                    li
+                        label 队员5
+                        input.txt#player6(type='text', placeholder='姓名+身份证号，输入时请用“，”分割')
+                        label.rlabel 姓名+身份证号，输入时请用“，”分割
+                .btn
+                    if round == 1
+                        a#postTeamMessage1.team 确认并提交战队报名信息
+                    else if round == 2
+                        a#postTeamMessage2.team 确认并提交战队报名信息
+
+
+
+

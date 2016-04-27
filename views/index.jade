@@ -1,0 +1,203 @@
+//
+   Created by huangchaohui on 16/4/24.
+extends layout
+
+block content
+  // 通用头部导航结束
+  // 赛事页开始
+  .re_page.competitionPage
+    // 面包屑开始
+    // 面包屑结束
+    // banner开始
+    .banner
+      img(src='_temp/06.jpg', width='100%', alt='')
+    // banner结束
+    // 赛事主体开始
+    .competitionMain
+      .pageTab.cf
+        a.now(href='javascript:;') 赛事介绍
+        a(href='javascript:;' style="display:none") 对阵详情
+      // 介绍开始
+      .mainShow.interBox
+        // 进度开始-第一轮
+        .scheduleBox
+          .title.cf
+            img(src='_temp/07.png', width='48', height='48', alt='')
+            p
+              strong 2016马尼拉特锦赛中国赛区 预选赛
+          .title.cf
+            span
+              strong 第一轮
+          // <em>（已关闭）</em>
+          .show
+            ul
+              li#s5s4s3s2s1
+                | 4月23日
+                br
+                br
+                |                             创建比赛
+                br
+                i#i5i4i3i2i1
+              li#s5s4s3s2
+                | 4月26日
+                br
+                br
+                |                             报名开始
+                br
+                i#i5i4i3i2
+              li#s5s4s3
+                | 4月28日
+                br
+                br
+                |                             报名截止
+                br
+                i#i5i4i3
+              li#s5s4
+                | 4月29日
+                br
+                br
+                |                             比赛开始
+                br
+                i#i5i4
+              li#s5
+                | 4月30日
+                br
+                br
+                |                             比赛结束
+                br
+                i#i5
+            p.line
+              span#progress(style='width:25%')
+        // 进度结束
+
+        // 进度开始-第二轮
+        .scheduleBox
+          .title.cf
+            br
+            span
+              strong 第二轮
+          // <em>（已关闭）</em>
+          .show
+            ul
+              li#p5p4p3p2p1
+                | 4月23日
+                br
+                br
+                |                             创建比赛
+                br
+                i#q5q4q3q2q1
+              li#p5p4p3p2
+                | 4月26日
+                br
+                br
+                |                             报名开始
+                br
+                i#q5q4q3q2
+              li#p5p4p3
+                | 4月30日
+                br
+                br
+                |                             报名截止
+                br
+                i#q5q4q3
+              li#p5p4
+                | 5月1日
+                br
+                br
+                |                             比赛开始
+                br
+                i#q5q4
+              li#p5
+                | 5月2日
+                br
+                br
+                |                             比赛结束
+                br
+                i#q5
+            p.line
+              span#progress2(style='width:25%')
+        // 进度结束
+
+        // 数据开始
+        .dataBox
+          dl.cf
+            dt
+              img(src='_temp/08.png', width='117', height='115', alt='')
+            dd
+              h4 2016 马尼拉特锦赛 中国赛区预选赛
+              p
+                | 在TI5落下帷幕后，Valve宣布开启DOTA2的四大联赛模式，在每年的春季、夏季、秋、秋季和冬季分别举行4次全球规模的比赛。在法兰克福秋季赛以及上海 冬季赛过后，东南亚特级锦标赛已经蓄势待发。在经过了短暂的调整之后，国内选手势必会卷土重来，在世界的舞台中再次绽放！
+                | 而现在，机会已然来临，由NEOTV承办的马尼拉特锦赛中国赛区公开预选赛即将开始。在经历为期四天的比赛之后，所有报名队伍将决出两只精英战队，入围 本次特锦赛中国赛区决赛。
+              .list
+                ul.cf
+                  li
+                    span 赛事名称：
+                    em 2016马尼拉特锦赛中国赛区预选赛
+                  li
+                    span  总奖金：
+                    em 马尼拉特锦赛中国赛区决赛名额 两名
+                  li
+                    span 比赛项目：
+                    em DOTA2
+                  li
+                    span 报名方式：
+                    em 线上报名
+                  li
+                    span 比赛版本：
+                    em 最新版本
+                  li
+                    span 比赛地点：
+                    em 线上赛
+        // 数据结束
+        // 规则开始
+        .ruleBox
+          h3 赛制说明
+          .show
+            | 1、本次比赛采取公开报名，请参赛战队确保报名信息真实有效，使用重复信息以及错误信息报名将会被取消参赛资格。
+            br
+            | 2、本次预选赛将举行两场公开赛，最终将决出两个晋级名额。
+            br
+            | 3、所有队伍可在本页面注册，并自由加入两场公开赛。
+            br
+            | 4、公开赛阶段将采用单败淘汰赛制，直至各公开赛半决赛前都将采用BO1制，而半决赛及决赛将采用BO3赛制。
+            br
+            | 5、任何感兴趣的人可以自由直播本比赛。
+            br
+            | 6、报名结束后，会根据报名结果安排详细对阵列表，举办方会联系各支队伍通知详细比赛时间。
+            br
+            | 7、每场公开赛只允许固定的5位选手组成的战队参与比赛。
+            br
+            br
+            br
+          h3 时间安排
+          .show
+            | 1、第一轮公开赛比赛报名截止时间为2016年4月29日，第二轮公开赛报名截止时间为 2016年5月1日。
+            br
+            | 2、第一轮公开赛比赛时间为2016年4月29日（所有队伍单淘）， 2016年4月30日（32强至决赛）。
+            br
+            | 3、第二轮公开比赛时间为2016年5月1日（所有队伍单淘）， 2016年5月2日（32强至决赛）。
+
+        // 规则结束
+        // 按钮开始
+        .btnBox#signBool
+          a.t1(style="display:none") 第一轮报名结束
+          a.t4(style="display:none" href='/enroll?round=1') 第一轮报名入口
+        .btnBox#signBool2
+          a.t1(style="display:none") 第二轮报名结束
+          a.t4(style="display:none" href='/enroll?round=2') 第二轮报名入口
+        // 按钮结束
+      // 介绍结束
+      // 名单开始
+      // 名单结束
+      // 对阵开始
+      .mainShow.re_vsBox(style='display:none;')
+        .bg
+          if url
+            img(src="#{url}" width="100%")
+          else
+            span 对阵详情将在报名结束后产生
+
+
+
+
+
